@@ -28,20 +28,20 @@ Before I share some fun metrics; please know that I was quite literally "winging
 
 Here are some fun metrics I screenshot before the service went down:
 
-Follower Stats:
-[tt-follows.png]
-
 Profile Stats:
-[tt-follows.png]
+![tt-follows.png](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-profile-stats.png?raw=true)
+
+Follower Stats:
+![tt-follows.png](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-followers.png?raw=true)
 
 Viewer Stats:
-[tt-follows.png]
+![[tt-follows.png]](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-viewers.png?raw=true)
 
 My Most Popular Videos:
-[tt-popularvideos.png]
+![tt-popularvideos.png](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-popularvideos.png?raw=true)
 
 Stats on my most popular video:
-[my-most-popular-video.png]
+![my-most-popular-video.png](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/my-most-popular-video.png?raw=true)
 
 I hope to continue the connections I've made along the way on any platform that will have us. It's critically important to have a group in your industry or field where you can bounce questions off of each other, discuss challenges, and sometimes just vent. Having a support network is invaluable in both personal and professional growth.
 
