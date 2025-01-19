@@ -28,6 +28,8 @@ Before I share some fun metrics; please know that I was quite literally "winging
 
 Here are some fun metrics I screenshot before the service went down:
 
+> Tip: Click the image to expand!
+
 Profile Stats:
 [![tt-follows.png](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-profile-stats.png?raw=true)](https://github.com/seeknay747/seeknay747.github.io/blob/master/assets/images/tt-profile-stats.png?raw=true)
 
