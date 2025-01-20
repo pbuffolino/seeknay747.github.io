@@ -14,23 +14,15 @@ tags:
 
 Protecting yourself online can feel challenging at times, but there’s an approach that works well and is applied to businesses everywhere: **Defense in Depth**. Think of it like peeling an onion; security comes in layers, and each one adds extra protection against threats. The goal of this post is to share some helpful ideas and get you thinking with a security mindset!
 
----
-
 ## What is Defense in Depth?
 
 Defense in Depth is a security strategy where multiple layers of protection work together to secure something valuable. For instance, think about protecting your home. You might have a locked door, a security camera, and a dog that barks. Even if one measure fails, the others remain in place. Similarly, for your online life, no single security practice is foolproof, but combining them strengthens your overall protection.
 
 ---
 
-# Defense in Depth - Layering Your Digital Security
-
-Protecting your digital life can feel overwhelming, but applying a strategy used by businesses—**Defense in Depth**—can make all the difference. Think of it like layers of an onion: each layer adds extra protection, making it harder for malicious actors to access your personal data.
-
----
-
 ## 1. Physical Security
 
-**Purpose:** Protect your devices from theft or tampering. 
+**Purpose:** Protect your devices from theft or tampering.
 
 Imagine losing your phone or laptop—photos, bank details, and passwords could all be at risk. Physical security ensures your devices stay safe from prying hands.
 
@@ -53,17 +45,16 @@ Imagine losing your phone or laptop—photos, bank details, and passwords could 
 
     **Enable Face ID or Touch ID on Mac:** Adds biometric authentication for secure access.\
     [Learn about Face ID or Touch ID](https://support.apple.com/guide/mac-help/use-touch-id-mchl16fbf90a/mac)
+
   - **Enable Face ID or Touch ID on iPhone/iPad:** Adds biometric authentication for secure access.\
     [Learn about Face ID or Touch ID](https://support.apple.com/en-us/HT208109)
-  - **Enable Find My  (Apple):** This feature helps you locate, lock, or erase your device remotely if it is lost or stolen. It is an essential tool for securing your personal information and ensuring that unauthorized users cannot access your data. [Learn more about Find My iPhone](https://support.apple.com/en-us/HT210515)
+  - **Enable Find My (Apple):** This feature helps you locate, lock, or erase your device remotely if it is lost or stolen. It is an essential tool for securing your personal information and ensuring that unauthorized users cannot access your data. [Learn more about Find My iPhone](https://support.apple.com/en-us/HT210515)
 
 - **Android Users:**
 
   - **Enable Biometric Authentication:** Use fingerprint or facial recognition for additional security.\
     [Learn about Android screen locks](https://support.google.com/android/answer/9079129)
   - **Enable Find My Device:** This feature helps you locate, lock, or erase your Android device remotely if it is lost or stolen. It also allows you to display a message on the lock screen or play a sound to help locate your phone. [Learn more about Find My Device](https://support.google.com/android/answer/6160491)
-
----
 
 ## 2. Network Security
 
@@ -80,14 +71,13 @@ Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wi
 ### Platform-Specific Examples:
 
 - **Windows Users:**
+
   - **Enable Windows Defender Firewall**: Blocks unwanted network traffic.  
     [Learn how to turn on Windows Defender Firewall](https://support.microsoft.com/en-us/help/4028544)
 
 - **Mac Users:**
   - **Enable Firewall**: Blocks unwanted incoming network connections.  
     [Learn about the Mac firewall](https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac)
-
----
 
 ## 3. Identity and Access Management (IAM)
 
@@ -102,7 +92,6 @@ Imagine someone pretending to be you online; they could open credit cards in you
 - **Use Social Sign-Ons for Convenience:** Services like "Sign in with Google," "Sign in with Apple," or "Sign in with Microsoft" provide advanced security features and reduce the need to manage multiple passwords.
 - **Freeze Your Credit:** Prevents unauthorized parties from opening new credit accounts in your name, significantly reducing the risk of identity theft.
 - **Enable Multi-Factor Authentication (MFA):** MFA adds an additional verification layer, such as a code sent to your phone or biometric authentication, making it harder for attackers to access your accounts even if they know your password. Accounts with MFA are 99.9% less likely to be compromised. [Source: Microsoft](https://www.microsoft.com/en-us/security/blog/2019/08/20/one-simple-action-you-can-take-to-prevent-99-9-percent-of-account-attacks/)
-
 
 #### Authentication Factor Comparison
 
@@ -119,9 +108,6 @@ Not all authentication factors are created equal, but don’t worry—this table
 | Weakest      | Security questions       | "What was your first pet’s name?" | Knowledge-based                                      | Knowledge                                            |
 | Weakest      | Password only            | Account passwords                 | Knowledge-based                                      | Knowledge                                            |
 
-
----
-
 ## 4. Application Security
 
 **Purpose:** Make sure the apps you use are safe and don’t misuse your information.
@@ -136,14 +122,17 @@ Ever downloaded an app and wondered, “Why does it need access to my camera or 
 ### Platform-Specific Examples:
 
 - **Windows Users:**
+
   - **Use Official Microsoft Store for Apps:** Offers verified and secure apps.  
     [Learn about Microsoft Store](https://apps.microsoft.com/home?hl=en-US&gl=US)
 
 - **Mac Users:**
+
   - **Use Official App Store:** Provides apps reviewed by Apple for security.  
     [Learn about the App Store](https://www.apple.com/app-store/)
 
 - **iPhone Users:**
+
   - **Manage App Permissions:** Control which apps have access to your data. Pay close attention to permissions granting access to sensitive information, such as location, contacts, camera, or microphone.  
     [Manage app permissions](https://support.apple.com/guide/iphone/control-access-to-information-in-apps-iph251e92810/ios)
   - **Use Safety Check on iPhone:** Helps review and manage shared information.  
@@ -152,8 +141,6 @@ Ever downloaded an app and wondered, “Why does it need access to my camera or 
 - **Android Users:**
   - **Enable Google Play Protect:** Scans apps for harmful behavior.  
     [Learn about Google Play Protect](https://support.google.com/accounts/answer/2812853)
-
----
 
 ## 5. Perimeter Security
 
@@ -166,8 +153,6 @@ Think of your online accounts as a series of doors. Perimeter security is about 
 - **Keep Your Web Browser Updated:** Regularly updating your web browser ensures you have the latest security patches, protecting against vulnerabilities that hackers often exploit. Modern browsers like Chrome, Firefox, Safari, and Edge frequently release updates to address newly discovered threats. Neglecting updates can leave you exposed to phishing attacks, malicious ads, and other online dangers.
 
 - **Use browser security features:** Utilize ad blockers to block intrusive ads and anti-tracking tools to prevent data collection. Examples include extensions like [uBlock Origin](https://ublockorigin.com) or DuckDuckGo Privacy Essentials. These tools enhance privacy and protect against potential threats such as malware.
-
----
 
 ## 6. Monitoring and Logging
 
@@ -184,8 +169,6 @@ Imagine having a security camera that shows you everything happening around your
   - [Google's activity checks](https://myaccount.google.com/security-checkup)
   - [Microsoft's security page](https://account.microsoft.com/security)
 
----
-
 ## 7. Data Security
 
 **Purpose:** Protect your personal information from being stolen or lost.
@@ -201,6 +184,7 @@ Your data is like a collection of precious memories and secrets. Data security e
 ### Platform-Specific Examples:
 
 - **Windows Devices:**
+
   - **Enable BitLocker Encryption:** Protects your hard drive by encrypting its contents.  
     [Learn how to enable BitLocker](https://support.microsoft.com/en-us/help/4028713)
   - **Use OneDrive:** Automatically back up your important files for added security. [Learn how to use OneDrive for file backup](https://support.microsoft.com/en-us/office/turn-on-onedrive-backup-4e44ceab-bcdf-4d17-9ae0-6f00f6080adb).
@@ -209,8 +193,6 @@ Your data is like a collection of precious memories and secrets. Data security e
   - **Enable FileVault:** Encrypts your hard drive to protect data.  
     [Learn how to enable FileVault](https://support.apple.com/en-us/HT204837)
   - **Use iCloud Drive:** Seamlessly back up your files and data for quick recovery. [Learn how to use iCloud Drive](https://support.apple.com/en-us/HT204025).
-
----
 
 ## 8. Cloud Security
 
@@ -221,6 +203,7 @@ Storing things in the cloud is like keeping valuables in a safety deposit box; y
 ### Platform-Specific Examples:
 
 - **Apple:**
+
   - **Enable Advanced Data Protection for iCloud:** Extends end-to-end encryption to more data categories, ensuring only you can access your information.  
     [Learn how to enable Advanced Data Protection for iCloud](https://support.apple.com/en-us/HT212520)
 
@@ -228,7 +211,6 @@ Storing things in the cloud is like keeping valuables in a safety deposit box; y
   - **Use Google Advanced Protection Program:** Provides the highest level of account security, including physical security keys and restricted third-party access.  
     [Learn about Google Advanced Protection](https://landing.google.com/advancedprotection/)
 
----
 
 ## 9. Incident Response and Recovery
 
@@ -244,8 +226,6 @@ Think of it as having a first-aid kit for your digital life. If something goes w
   - [Google's Account Recovery](https://support.google.com/accounts/answer/7682439)
   - [Microsoft's Account Recovery](https://account.live.com/ACSR)
 - **Have a plan for reporting identity theft:** Contact banks, freeze credit, and use resources like the Federal Trade Commission's [IdentityTheft.gov](https://www.identitytheft.gov) to report and manage identity theft cases.
-
----
 
 ## Final Thoughts
 
