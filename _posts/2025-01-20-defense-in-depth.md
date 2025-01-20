@@ -1,5 +1,5 @@
 ---
-title: "Defense in Depth - It's Not Just for Businesses: How to Layer Your Digital Security"
+title: "Defense in Depth - How to Layer Your Personal Digital Security"
 date: 2025-01-20T09:30:00-04:00
 categories:
   - blog
