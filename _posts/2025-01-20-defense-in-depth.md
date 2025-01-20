@@ -1,6 +1,7 @@
 ---
 title: "Defense in Depth, How to Layer Your Personal Digital Security"
 date: 2025-01-20T09:30:00-04:00
+classes: wide
 categories:
   - blog
 tags:
