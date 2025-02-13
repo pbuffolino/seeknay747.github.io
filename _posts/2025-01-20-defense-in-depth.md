@@ -27,13 +27,13 @@ Defense in Depth is a security strategy where multiple layers of protection work
 
 Imagine losing your phone or laptop—photos, bank details, and passwords could all be at risk. Physical security ensures your devices stay safe from prying hands.
 
-### Recommendations:
+#### Recommendations:
 
 - **Keep your devices (e.g., phones, laptops) in a secure location:** This reduces the risk of theft or tampering.
 - **Use device locks, such as PINs, passcodes, or biometrics (e.g., fingerprint or facial recognition):** Prevents unauthorized users from accessing your device. Avoid common passwords like "1234," birthdays, or easily guessed phrases. Do not reuse passwords across devices.
 - **Avoid leaving devices unattended in public places:** Minimizes the chance of loss or theft.
 
-### Platform-Specific Examples:
+#### Platform-Specific Examples:
 
 - **Windows Users:**
 
@@ -63,13 +63,13 @@ Imagine losing your phone or laptop—photos, bank details, and passwords could 
 
 Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wide open, would you? Network security is about making sure only trusted people and devices can use your internet. This protects not just your connection but everything connected to it, from your smart TV to your work emails.
 
-### Recommendations:
+#### Recommendations:
 
 - **Keep Your Home Router and Wi-Fi Router Updated:** Regularly update the firmware to patch vulnerabilities and enhance security.
 - **Change the Default Password on Your Router:** Replace the default credentials with a strong, unique password to prevent unauthorized access.
 - **Set a Strong Wi-Fi Password:** Use a complex and unique password for your Wi-Fi network to secure it against potential intrusions.
 
-### Platform-Specific Examples:
+#### Platform-Specific Examples:
 
 - **Windows Users:**
 
@@ -86,7 +86,7 @@ Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wi
 
 Imagine someone pretending to be you online; they could open credit cards in your name or even lock you out of your own accounts. IAM is about proving who you are, like showing ID but for the internet. It ensures only the real you can log in or make important changes to your accounts.
 
-### Recommendations:
+#### Recommendations:
 
 - **Use Strong, Unique Passwords:** Create passwords that are long (at least 12 characters), memorable, and avoid commonly used or easily guessed phrases. Use passphrases with a mix of unrelated words or phrases. Avoid reusing passwords across accounts to minimize risk if one account is compromised.
 - **Use a Password Manager:** Choose one that is easy to use and compatible with the devices you use most often. For instance, Apple's built-in password manager might suffice for iPhone users. For platform-agnostic options, consider 1Password, Keeper, or Bitwarden.
@@ -100,8 +100,8 @@ Not all authentication factors are created equal, but don’t worry—this table
 
 | **Strength** | **Factor**               | **Examples**                      | **Characteristics**                                  | **Type**                                             |
 | ------------ | ------------------------ | --------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| Strongest    | Passkeys                 | Apple Passkeys, Google Passkeys   | Device-bound, Phishing-resistant, User-verifying     | (Possession + Knowledge) or (Possession + Biometric) |
-| Strong       | Hardware security keys   | YubiKey, Titan Security Key       | Device-bound, Hardware-protected, Phishing-resistant | Possession                                           |
+| Very Strong    | Passkeys                 | Apple Passkeys, Google Passkeys   | Device-bound, Phishing-resistant, User-verifying     | (Possession + Knowledge) or (Possession + Biometric) |
+| Very Strong       | Hardware security keys   | YubiKey, Titan Security Key       | Device-bound, Hardware-protected, Phishing-resistant | Possession                                           |
 | Strong       | Biometric authentication | Fingerprint, Face ID              | User presence, Device-bound, User-verifying          | Biometric                                            |
 | Moderate     | Authenticator apps       | Google Authenticator, Authy       | Device-bound, User presence                          | Possession                                           |
 | Weak         | SMS-based codes          | One-time PIN via SMS              | User presence                                        | Possession                                           |
@@ -115,12 +115,12 @@ Not all authentication factors are created equal, but don’t worry—this table
 
 Ever downloaded an app and wondered, “Why does it need access to my camera or contacts?” Application security ensures the tools you rely on, like banking apps or social media, don’t leave you vulnerable. It’s about trusting that what’s on your phone or computer is there to help—not hurt.
 
-### Recommendations:
+#### Recommendations:
 
 - **Regularly Update Applications:** Keeps apps secure with the latest patches.
 - **Regularly Update Operating Systems:** Keeps your devices protected against known vulnerabilities by applying the latest operating system patches.
 
-### Platform-Specific Examples:
+#### Platform-Specific Examples:
 
 - **Windows Users:**
 
@@ -149,7 +149,7 @@ Ever downloaded an app and wondered, “Why does it need access to my camera or 
 
 Think of your online accounts as a series of doors. Perimeter security is about making sure only you have the keys. It’s like putting a peephole on your accounts so you can see who’s trying to knock before letting them in. This layer keeps hackers and scammers out.
 
-### Recommendations:
+#### Recommendations:
 
 - **Keep Your Web Browser Updated:** Regularly updating your web browser ensures you have the latest security patches, protecting against vulnerabilities that hackers often exploit. Modern browsers like Chrome, Firefox, Safari, and Edge frequently release updates to address newly discovered threats. Neglecting updates can leave you exposed to phishing attacks, malicious ads, and other online dangers.
 
@@ -161,7 +161,7 @@ Think of your online accounts as a series of doors. Perimeter security is about 
 
 Imagine having a security camera that shows you everything happening around your home. Monitoring your accounts works the same way; it helps you catch suspicious activity early. If someone’s trying to sneak in, you’ll know and can act before it’s too late.
 
-### Recommendations:
+#### Recommendations:
 
 - **Sign up for breach notifications:** Services like [Have I Been Pwned](https://haveibeenpwned.com) can alert you if your email or accounts are involved in a known data breach. Early detection allows for immediate action, such as password changes.
 - **Monitor credit reports:** Regularly check for unusual activity to detect identity theft early. Services like Experian provide frequent monitoring options.
@@ -176,13 +176,13 @@ Imagine having a security camera that shows you everything happening around your
 
 Your data is like a collection of precious memories and secrets. Data security ensures that even if something goes wrong; a lost phone or a hacked account; you’re not left empty-handed. It’s about safeguarding the things that matter most to you, like family photos or important documents.
 
-### Recommendations:
+#### Recommendations:
 
 - **Back up important files:** Use encrypted external drives or cloud storage to safeguard your data against loss or ransomware attacks.
 - **Use secure passwords and a password manager:** Avoid reusing passwords across accounts. A password manager can help create and store strong, unique passwords.
 - **Avoid sharing sensitive information:** Never send personal details over unencrypted email or messaging apps.
 
-### Platform-Specific Examples:
+#### Platform-Specific Examples:
 
 - **Windows Devices:**
 
@@ -201,7 +201,7 @@ Your data is like a collection of precious memories and secrets. Data security e
 
 Storing things in the cloud is like keeping valuables in a safety deposit box; you trust that it’s secure, but you still want to double-check. Cloud security ensures your files, like photos, backups, and emails, are safe from unauthorized access, no matter where they’re stored.
 
-### Platform-Specific Examples:
+#### Platform-Specific Examples:
 
 - **Apple:**
 
@@ -219,7 +219,7 @@ Storing things in the cloud is like keeping valuables in a safety deposit box; y
 
 Think of it as having a first-aid kit for your digital life. If something goes wrong, like losing access to an account or dealing with identity theft—you’ll have a plan to fix it fast. This layer is all about bouncing back and not letting one mistake take you down.
 
-### Recommendations:
+#### Recommendations:
 
 - **Keep backups:** Maintain copies of critical data in case of ransomware or hardware failure.
 - **Know how to reset passwords and lock devices remotely:** Familiarize yourself with account recovery options for all devices. Refer to these resources for step-by-step guidance:
