@@ -23,13 +23,13 @@ This post aims to provide useful insights and actionable links to help you enabl
 
 ## 1. Physical Security
 
-**Purpose:** Protect your devices from theft or tampering.
+**Purpose:** Protect your physical devices from theft or tampering.
 
 Imagine losing your phone or your laptop. Your photos, bank details, and passwords could all be at risk. Physical security ensures you protect the "front door" to your device.
 
 #### Recommendation:
 
-- **Use device locks, such as PINs, passcodes, or biometrics (e.g., fingerprint or facial recognition):** Prevents unauthorized users from accessing your device. Please avoid common passwords like "1234," birthdays, or easily guessed phrases. Do not reuse passwords across devices!
+- **Use device locks, such as PINs, passcodes, or biometrics (e.g., fingerprint or facial recognition):** Prevents unauthorized users from accessing your device. Please avoid common passwords like "1234," birthdays, or easily guessed phrases. Do not reuse PIN's/Passwords across devices!
 
 #### Platform-Specific Examples:
 
@@ -44,17 +44,17 @@ Imagine losing your phone or your laptop. Your photos, bank details, and passwor
 
   - **Enable Face ID or Touch ID on Mac:** Adds biometric authentication for secure access.\
     [Learn about Face ID or Touch ID](https://support.apple.com/guide/mac-help/use-touch-id-mchl16fbf90a/mac)
-  
+
   - **Enable Face ID or Touch ID on iPhone/iPad:** Adds biometric authentication for secure access.\
     [Learn about Face ID or Touch ID](https://support.apple.com/en-us/HT208109)
-  
+
   - **Enable Find My iPhone/iPad:** This feature helps you locate, lock, or erase your device remotely if it is lost or stolen. It is an essential tool for securing your personal information and ensuring that unauthorized users cannot access your data. [Learn more about Find My iPhone](https://support.apple.com/en-us/HT210515)
 
 - **Android:**
 
   - **Enable Biometric Authentication:** Use fingerprint or facial recognition for additional security.\
     [Learn about Android screen locks](https://support.google.com/android/answer/9079129)
-  
+
   - **Enable Find My Device:** This feature helps you locate, lock, or erase your Android device remotely if it is lost or stolen. It also allows you to display a message on the lock screen or play a sound to help locate your phone. [Learn more about Find My Device](https://support.google.com/android/answer/6160491)
 
 ## 2. Network Security
@@ -79,7 +79,7 @@ Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wi
     [Learn how to turn on Windows Defender Firewall](https://support.microsoft.com/en-us/help/4028544)
 
 - **Mac:**
-  
+
   - **Enable Firewall**: Blocks unwanted incoming network connections.  
     [Learn about the Mac firewall](https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac)
 
@@ -142,7 +142,7 @@ Ever downloaded an app and wondered, “Why does it need access to my camera or 
 
   - **Manage App Permissions on Mac:** Control which apps have access to your data. Pay close attention to permissions granting access to sensitive information, such as location, contacts, camera, or microphone.  
     [Manage app permissions](https://support.apple.com/guide/iphone/control-access-to-information-in-apps-iph251e92810/ios)
-  
+
   - **Use Safety Check on iPhone:** Helps review and manage shared information.  
     [Use Safety Check](https://support.apple.com/guide/personal-safety/safety-check-iphone-ios-16-ips2aad835e1/web)
 
@@ -174,6 +174,7 @@ Imagine having a security camera that shows you everything happening around your
 - **Sign up for breach notifications:** Services like [Have I Been Pwned](https://haveibeenpwned.com) can alert you if your email or accounts are involved in a known data breach. Early detection allows for immediate action, such as password changes.
 
 - **Regularly check account activity:** Use tools provided by major platforms to monitor logins and account activity:
+
   - [Apple Trusted Devices](https://account.apple.com/account/manage/section/devices)
   - [Google's activity checks](https://myaccount.google.com/security-checkup)
   - [Microsoft's security page](https://account.microsoft.com/security)
@@ -182,33 +183,33 @@ Imagine having a security camera that shows you everything happening around your
 
 ## 7. Data Security
 
-**Purpose:** Protect your personal information if your device is being stolen or lost.
+**Purpose:** Protect your personal information if your device is stolen or lost.
 
-Your data is like a collection of precious memories and secrets. Data security ensures that even if something goes wrong; a lost phone or a hacked account; you’re not left empty-handed. It’s about safeguarding the things that matter most to you, like family photos or important documents.
+Your data contains valuable memories and personal information. Data security protects what matters most, keeping important files like family photos and essential documents safe and accessible, no matter what happens.
 
 #### Recommendations:
 
-- **Back up important files:** Use encrypted external drives or cloud storage to safeguard your data against loss or ransomware attacks.
+- **Back up important files:** Use cloud storage or even encrypted external drives to safeguard your data against loss or ransomware attacks.
 
 - **Use secure passwords and a password manager:** Avoid reusing passwords across accounts. A password manager can help create and store strong, unique passwords.
 
-- **Avoid sharing sensitive information:** Never send personal details over unencrypted email or messaging apps.
+- **Avoid sharing sensitive information:** Never send personally identifiable information (PII) like your Social Security Number (SSN) over unencrypted email or messaging apps.
 
 #### Platform-Specific Examples:
 
 - **Windows:**
 
-  - **Enable BitLocker Encryption:** Protects your hard drive by encrypting its contents.  
-    [Learn how to enable BitLocker](https://support.microsoft.com/en-us/help/4028713)
-  
+  - **Enable BitLocker Encryption:** Protects your hard drive by encrypting its contents. [Learn how to enable BitLocker](https://support.microsoft.com/en-us/help/4028713)
+
   - **Use OneDrive:** Automatically back up your important files for added security. [Learn how to use OneDrive for file backup](https://support.microsoft.com/en-us/office/turn-on-onedrive-backup-4e44ceab-bcdf-4d17-9ae0-6f00f6080adb).
 
-- **Apple Mac:**
-  
-  - **Enable FileVault:** Encrypts your hard drive to protect data.  
-    [Learn how to enable FileVault](https://support.apple.com/en-us/HT204837)
-  
-  - **Use iCloud Drive:** Seamlessly back up your files and data for quick recovery. [Learn how to use iCloud Drive](https://support.apple.com/en-us/HT204025).
+- **Apple:**
+
+  - **Enable iCloud Backup for iPhone/iPad:** Seamlessly back up your mobile device for fast recovery. [Leard how to use iCloud Backup](https://support.apple.com/en-us/108366)
+
+  - **Use iCloud Drive for Files:** Seamlessly back up your files and data for quick recovery. [Learn how to use iCloud Drive](https://support.apple.com/en-us/HT204025)
+
+  - **Enable FileVault on Mac:** Encrypts your hard drive to protect data. [Learn how to enable FileVault](https://support.apple.com/en-us/HT204837)
 
 ## 8. Cloud Security
 
@@ -224,7 +225,7 @@ Storing things in the cloud is like keeping valuables in a safety deposit box; y
     [Learn how to enable Advanced Data Protection for iCloud](https://support.apple.com/en-us/HT212520)
 
 - **Google Phones/Tablets:**
-  
+
   - **Use Google Advanced Protection Program:** Provides the highest level of account security, including physical security keys and restricted third-party access.  
     [Learn about Google Advanced Protection](https://landing.google.com/advancedprotection/)
 
@@ -239,6 +240,7 @@ Think of it as having a first-aid kit for your digital life. If something goes w
 - **Keep backups:** Maintain copies of critical data in case of ransomware or hardware failure.
 
 - **Know how to reset passwords and lock devices remotely:** Familiarize yourself with account recovery options for all devices. Refer to these resources for step-by-step guidance:
+
   - [Apple's Account Recovery](https://support.apple.com/en-us/HT204921)
   - [Google's Account Recovery](https://support.google.com/accounts/answer/7682439)
   - [Microsoft's Account Recovery](https://account.live.com/ACSR)
