@@ -151,19 +151,8 @@ Ever downloaded an app and wondered, “Why does it need access to my camera or 
   - **Enable Google Play Protect:** Scans apps for harmful behavior.  
     [Learn about Google Play Protect](https://support.google.com/accounts/answer/2812853)
 
-## 5. Perimeter Security
 
-**Purpose:** Protect your online identity from being misused.
-
-Think of your online accounts as a series of doors. Perimeter security is about making sure only you have the keys. It’s like putting a peephole on your accounts so you can see who’s trying to knock before letting them in. This layer keeps hackers and scammers out.
-
-#### Recommendations:
-
-- **Keep Your Web Browser Updated:** Regularly updating your web browser ensures you have the latest security patches, protecting against vulnerabilities that hackers often exploit. Modern browsers like Chrome, Firefox, Safari, and Edge frequently release updates to address newly discovered threats. Neglecting updates can leave you exposed to phishing attacks, malicious ads, and other online dangers.
-
-- **Use browser security features:** Utilize ad blockers to block intrusive ads and anti-tracking tools to prevent data collection. Examples include extensions like [uBlock Origin](https://ublockorigin.com) or DuckDuckGo Privacy Essentials. These tools enhance privacy and protect against potential threats such as malware.
-
-## 6. Monitoring and Logging
+## 5. Monitoring and Logging
 
 **Purpose:** Stay aware of what’s happening with your accounts and devices.
 
@@ -181,7 +170,7 @@ Imagine having a security camera that shows you everything happening around your
 
 - **Monitor credit reports:** Regularly check for unusual activity to detect identity theft early. Services like Experian provide frequent monitoring options.
 
-## 7. Data Security
+## 6. Data Security
 
 **Purpose:** Protect your personal information if your device is stolen or lost.
 
@@ -211,7 +200,7 @@ Your data contains valuable memories and personal information. Data security pro
 
   - **Enable FileVault on Mac:** Encrypts your hard drive to protect data. [Learn how to enable FileVault](https://support.apple.com/en-us/HT204837)
 
-## 8. Cloud Security
+## 7. Cloud Security
 
 **Purpose:** Keep your information safe in the cloud.
 
@@ -229,7 +218,7 @@ Storing things in the cloud is like keeping valuables in a safety deposit box; y
   - **Use Google Advanced Protection Program:** Provides the highest level of account security, including physical security keys and restricted third-party access.  
     [Learn about Google Advanced Protection](https://landing.google.com/advancedprotection/)
 
-## 9. Incident Response and Recovery
+## 8. Incident Response and Recovery
 
 **Purpose:** Be ready to handle any security mishaps quickly and effectively.
 
