@@ -1,5 +1,5 @@
 ---
-title: "Blog Highlight: Cyber Crisis – A CXO’s Quest"
+title: "Cyber Crisis – A CXO’s Quest"
 date: 2025-04-12T22:00:00-04:00
 categories:
   - blog
