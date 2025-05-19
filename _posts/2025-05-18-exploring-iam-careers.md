@@ -248,9 +248,7 @@ While certifications are not mandatory, they can enhance your credibility:
 
 - **CompTIA Security+:** Offers a broad overview of security concepts, including IAM.
 - **Microsoft Certified: Identity and Access Administrator Associate:** Focuses on managing identity and access in Microsoft environments.
-- **Okta Learning Portal Badges:** Okta offers a new learning portal that provides badging and doesn't require you to be a customer. [Learn more here](https://www.okta.com/).
-
-*Note:* Advanced certifications like CISSP are not recommended for beginners due to their complexity and experience requirements.
+- **Okta Learning Portal Badges:** Okta offers a new learning portal that provides badging and doesn't require you to be a customer.
 
 ### 4. Join IAM Communities
 
