@@ -42,7 +42,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 - **Technical Skills:** Familiarity with IAM tools and platforms (e.g., Active Directory, LDAP, SAML, MFA solutions).
 - **Analytical Skills:** Strong analytical and problem-solving abilities, with attention to detail.
 - **Communication:** Effective verbal and written communication skills, with the ability to convey complex information to non-technical stakeholders.
-- **Certifications (Preferred):** Certifications such as CompTIA Security+, Certified Identity and Access Manager (CIAM), or similar.
+- **Certifications (Preferred):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
 
 **Similar Job Titles:**
 
@@ -57,63 +57,68 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 2. IAM Administrator
+### 2. Identity and Access Management (IAM) Administrator
 
-**Responsibilities:**
+**Typical Responsibilities:**
 
-- Manage user accounts and access rights.
-- Configure and maintain IAM tools.
-- Monitor and audit access logs for compliance.
-- Implement and maintain Multi-Factor Authentication (MFA) solutions.
-- Provide support for IAM-related issues.
+- **User Lifecycle Management:** Manage the provisioning, modification, and deactivation of user accounts across systems, ensuring timely and accurate access control.
+- **Access Control Implementation:** Define and enforce access policies, including role-based access control (RBAC), to ensure users have appropriate permissions.
+- **IAM System Maintenance:** Configure, maintain, and optimize IAM tools and platforms to support authentication, authorization, and directory services.
+- **Monitoring and Auditing:** Regularly monitor system activity, conduct access reviews, and audit logs to ensure compliance with security policies and regulatory requirements.
+- **Multi-Factor Authentication (MFA):** Implement and manage MFA solutions to enhance security for user authentication processes.
+- **Issue Resolution:** Troubleshoot and resolve IAM-related issues, providing support to users and collaborating with IT teams to address access concerns.
+- **Documentation:** Maintain comprehensive documentation of IAM processes, configurations, and procedures for audit and operational purposes.
 
 **Ideal Background:**
 
-- Bachelor's degree in Information Security, Information Technology, Computer Science, or a related field.
-- Experience in IAM or related roles.
-- Experience with user provisioning, access control, and directory services.
-- Strong communication skills to convey technical information to non-technical audiences.
+- **Education:** Bachelor's degree in Information Security, Information Technology, Computer Science, or a related field.
+- **Experience:** Will vary; typically 3+ years in IAM or related roles, with hands-on experience in user provisioning, access control, and directory services.
+- **Technical Skills:** Proficiency with IAM tools (e.g., Active Directory, LDAP), understanding of authentication protocols (e.g., SAML, OAuth), and familiarity with security frameworks.
+- **Communication:** Strong ability to convey technical information to non-technical audiences and collaborate across departments.
+- **Certifications (Preferred):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
 
 **Similar Job Titles:**
 
-- IAM Administrator
-- Identity Access Management Administrator
-- IAM Systems Administrator
-- Identity Management Administrator
-- IAM Operations Administrator
 - Access Management Administrator
+- Identity Management Administrator
+- IAM Systems Administrator
+- IAM Operations Administrator
 - IAM Support Administrator
 - IAM Analyst/Administrator
 - IAM Specialist
 - IAM Engineer
 
+
 ---
 
-### 3. IAM Developer
+### 3. Identity and Access Management (IAM) Developer
 
 **Responsibilities:**
 
-- Design, implement, and maintain IAM systems within an organization.
-- Create secure and efficient frameworks for managing digital identities.
-- Integrate applications with identity providers using protocols like OAuth 2.0, OIDC, and SAML.
-- Develop custom solutions for identity workflows.
+- **System Design and Implementation:** Design, develop, and maintain IAM solutions that manage digital identities and access rights across the organization.
+- **Application Integration:** Integrate applications and services with identity providers using protocols such as OAuth 2.0, OpenID Connect (OIDC), and SAML to enable single sign-on (SSO) and secure authentication.
+- **Custom Development:** Develop custom scripts and applications to automate identity workflows, including user provisioning, deprovisioning, and access reviews.
+- **Directory Services Management:** Work with directory services like Active Directory and LDAP to manage user information and access controls.
+- **Security Compliance:** Ensure IAM solutions comply with security policies and regulatory requirements, conducting regular assessments and implementing necessary controls.
+- **Collaboration:** Collaborate with cross-functional teams, including security, IT, and application developers, to implement IAM best practices and solutions.
+- **Troubleshooting and Support:** Identify and resolve issues related to identity management systems, providing support for IAM-related incidents and requests.
 
 **Ideal Background:**
 
-- Bachelor's degree in Computer Science, Engineering, or a related field.
-- Experience with IAM tools.
-- Proficiency in programming languages and scripting (e.g., Python, PowerShell).
-- Familiarity with security protocols and APIs.
+- **Education:** Bachelor's degree in Computer Science, Engineering, or a related field.
+- **Experience:** 3+ years of experience in IAM development or a related role, with hands-on experience in designing and implementing IAM solutions.
+- **Technical Skills:** Proficiency in programming and scripting languages such as Python, PowerShell, JavaScript, or Java; experience with IAM tools and platforms; familiarity with authentication and authorization protocols (e.g., OAuth 2.0, OIDC, SAML).
+- **Security Knowledge:** Understanding of security principles and practices, including access control models, encryption, and compliance standards.
+- **Communication:** Strong communication skills to effectively collaborate with technical and non-technical stakeholders.
 
 **Similar Job Titles:**
 
-- IAM Developer
 - Identity and Access Management Developer
-- IAM Engineer
-- IAM Software Engineer
-- IAM Solutions Developer
-- Senior IAM Developer
-- IAM Integration Developer
+- Identity Management Developer
+- Identity and Access Management Software Engineer
+- Identity and Access Management Solutions Developer
+- Identity and Access Management Integration Developer
+- Identity and Access Management Engineer
 
 ---
 
