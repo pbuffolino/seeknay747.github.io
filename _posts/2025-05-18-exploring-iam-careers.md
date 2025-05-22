@@ -18,43 +18,42 @@ related: true
 
 ## Introduction
 
-Identity and Access Management (IAM) is a foundational element of modern IT security, ensuring that individuals and systems have appropriate access to resources. As organizations prioritize security and compliance, the demand for IAM professionals has grown significantly. This article examines various IAM roles, the skills required, and pathways to embark on a career in this dynamic field.
+When people say they “work in Identity,” it can mean a lot of different things, and that’s what makes this field both interesting and confusing for those just starting out. Identity and Access Management (IAM) is about making sure the right people and systems have access to the right things, and nothing more. That might sound simple, but in practice it spans everything from handling logins and managing accounts to enforcing security policies across thousands of users and applications.
 
-## IAM Roles: From Entry-Level to Advanced
-
-IAM encompasses a range of roles, each with distinct responsibilities and skill requirements. Below is an overview of key IAM positions, ordered from entry-level to more advanced roles.
+This post breaks down the types of IAM jobs that exist today; some technical, some operational, some focused on governance or cloud - and outlines what skills are helpful for each. I also included examples pulled from real job listings to show how these roles show up in the wild. If you’re curious about IAM, switching roles, or just figuring out where to start, I hope this gives you a useful jumping-off point.
 
 ---
 
-### 1. IAM Analyst
+### 1. Identity and Access Management (IAM) Analyst
 
-**Responsibilities:**
+**Typical Responsibilities:**
 
-- Conduct access reviews and audits.
-- Ensure compliance with regulatory standards.
-- Analyze access patterns to identify potential security risks.
-- Manage user accounts and access permissions.
-- Collaborate with IT and cybersecurity teams to establish access controls.
+- **User Lifecycle Management:** Oversee the creation, modification, and deactivation of user accounts across various systems, ensuring timely and accurate provisioning and deprovisioning.
+- **Access Reviews and Audits:** Conduct regular audits and reviews of user access rights to ensure compliance with internal policies and external regulations.
+- **Policy Enforcement:** Implement and enforce IAM policies, procedures, and controls to maintain security and compliance standards.
+- **Collaboration:** Work closely with IT, HR, and security teams to align IAM processes with organizational needs and to address access-related issues.
+- **Troubleshooting:** Identify and resolve access-related issues, ensuring minimal disruption to business operations.
+- **Documentation:** Maintain up-to-date documentation of IAM processes, configurations, and procedures for audit and operational purposes.
 
 **Ideal Background:**
 
-- Bachelor's degree in Computer Science, Information Technology, or a related field.
-- Experience in identity and access management.
-- Familiarity with IAM tools and platforms.
-- Strong analytical skills and attention to detail.
+- **Education:** Bachelor's degree in Computer Science, Information Technology, or a related field.
+- **Experience:** Will vary; typically 2+ years of experience in identity and access management or a related IT security role.
+- **Technical Skills:** Familiarity with IAM tools and platforms (e.g., Active Directory, LDAP, SAML, MFA solutions).
+- **Analytical Skills:** Strong analytical and problem-solving abilities, with attention to detail.
+- **Communication:** Effective verbal and written communication skills, with the ability to convey complex information to non-technical stakeholders.
+- **Certifications (Preferred):** Certifications such as CompTIA Security+, Certified Identity and Access Manager (CIAM), or similar.
 
 **Similar Job Titles:**
 
-- Identity & Access Management Analyst
-- IAM Provisioning Analyst
-- IAM Business Analyst
 - Access Management Analyst
 - Identity Governance Analyst
 - Identity Management Analyst
-- Security Analyst – Identity & Access Management (IAM)
-- IAM Analyst – Intermediate
-- Identity Access Management Analyst
-- IAM Risk Analyst
+- Identity and Access Provisioning Analyst
+- Identity and Access Business Analyst
+- Identity and Access Risk Analyst
+- Security Analyst – Identity and Access Management
+
 
 ---
 
