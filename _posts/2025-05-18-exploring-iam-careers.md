@@ -26,7 +26,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ### 1. Identity and Access Management (IAM) Analyst
 
-**Typical Responsibilities:**
+**Responsibilities:**
 
 - **User Lifecycle Management:** Oversee the creation, modification, and deactivation of user accounts across various systems, ensuring timely and accurate provisioning and deprovisioning.
 - **Access Reviews and Audits:** Conduct regular audits and reviews of user access rights to ensure compliance with internal policies and external regulations.
@@ -59,7 +59,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ### 2. Identity and Access Management (IAM) Administrator
 
-**Typical Responsibilities:**
+**Responsibilities:**
 
 - **User Lifecycle Management:** Manage the provisioning, modification, and deactivation of user accounts across systems, ensuring timely and accurate access control.
 - **Access Control Implementation:** Define and enforce access policies, including role-based access control (RBAC), to ensure users have appropriate permissions.
