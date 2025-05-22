@@ -42,7 +42,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 - **Technical Skills:** Familiarity with IAM tools and platforms (e.g., Active Directory, LDAP, SAML, MFA solutions).
 - **Analytical Skills:** Strong analytical and problem-solving abilities, with attention to detail.
 - **Communication:** Effective verbal and written communication skills, with the ability to convey complex information to non-technical stakeholders.
-- **Certifications (Preferred):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
+- **Certifications (Optional):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
 
 **Similar Job Titles:**
 
@@ -75,7 +75,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 - **Experience:** Will vary; typically 3+ years in IAM or related roles, with hands-on experience in user provisioning, access control, and directory services.
 - **Technical Skills:** Proficiency with IAM tools (e.g., Active Directory, LDAP), understanding of authentication protocols (e.g., SAML, OAuth), and familiarity with security frameworks.
 - **Communication:** Strong ability to convey technical information to non-technical audiences and collaborate across departments.
-- **Certifications (Preferred):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
+- **Certifications (Optional):** Certifications such as CompTIA Security+, vendor-specific IAM certifications from Okta, Microsoft, or similar.
 
 **Similar Job Titles:**
 
@@ -142,7 +142,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 - **Regulatory Knowledge:** Familiarity with regulatory requirements such as GDPR, HIPAA, SOX, and ISO 27001.
 - **Analytical Skills:** Strong analytical and problem-solving abilities, with attention to detail.
 - **Communication:** Effective communication skills to collaborate with cross-functional teams and convey technical information to non-technical stakeholders.
-- **Certifications (Preferred):** Certifications such as Certified Information Systems Security Professional (CISSP), Certified Identity and Access Manager (CIAM), or Certified Information Security Manager (CISM).
+- **Certifications (Optional):** Certifications such as Certified Information Systems Security Professional (CISSP), Certified Information Security Manager (CISM), or vendor-specific IAM certifications.
 
 **Similar Job Titles:**
 
@@ -153,40 +153,41 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 - Identity and Access Management Governance Specialist
 - Identity and Access Management Risk Analyst
 - Identity and Access Management Compliance Specialist
-- Identity and Access Management Security Engineer
 - Identity and Access Management Threat Analyst
-
 
 ---
 
-### 5. IAM Architect
+### 5. Identity and Access Management (IAM) Architect
 
 **Responsibilities:**
 
-- Design scalable and secure IAM infrastructures.
-- Develop strategies for identity federation and single sign-on (SSO).
-- Collaborate with stakeholders to align IAM solutions with business needs.
-- Integrate identity management, access management, and access governance software into client infrastructure and applications.
+- **Architectural Design:** Design and implement scalable, secure, and resilient IAM infrastructures that align with organizational goals and regulatory requirements.
+- **Federated Identity and SSO Strategies:** Develop and oversee strategies for identity federation and single sign-on (SSO) to streamline user access across diverse systems and platforms.
+- **Stakeholder Collaboration:** Collaborate with business and IT stakeholders (Information Security, Internal Audit, etc.) to ensure IAM solutions meet current and future business needs.
+- **Integration of IAM Solutions:** Integrate identity management, access management, and governance solutions into existing infrastructures and applications.
+- **Policy and Compliance Oversight:** Establish and enforce IAM policies, standards, and procedures to ensure compliance with industry regulations and best practices.
+- **Technology Evaluation:** Evaluate emerging IAM technologies and recommend solutions that enhance security and operational efficiency.
+- **Mentorship and Leadership:** Provide guidance and mentorship to IAM teams, fostering a culture of continuous improvement and knowledge sharing.
 
 **Ideal Background:**
 
-- Degree in Computer Science, Cyber Security, Information Security, Engineering, Information Technology, or related fields.
-- Extensive experience in IAM architecture.
-- Experience with IAM tools.
-- Strong troubleshooting and organizational skills.
+- **Education:** Bachelor's or Master's degree in Computer Science, Cybersecurity, Information Technology, or a related field.
+- **Experience:** Extensive experience in IAM architecture, including the design and implementation of complex IAM solutions.
+- **Technical Proficiency:** Deep understanding of IAM protocols (e.g., SAML, OAuth, OpenID Connect), directory services (e.g., Active Directory, LDAP), and IAM tools (Sailpoint, Okta, Entra ID, Saviynt).
+- **Strategic Thinking:** Ability to align IAM strategies with business objectives and adapt to evolving technological landscapes.
+- **Communication Skills:** Strong verbal and written communication skills to effectively convey complex IAM concepts to diverse audiences.
+- **Certifications (Optional):** Certifications such as Certified Information Systems Security Professional (CISSP), Certified Identity and Access Manager (CIAM), or similar credentials.
 
 **Similar Job Titles:**
 
-- IAM Architect
-- Identity and Access Management Architect
-- IAM Solutions Architect
-- IAM Technical Architect
-- IAM Infrastructure Architect
-- IAM Security Architect
-- IAM Enterprise Architect
-- IAM Domain Architect
-- IAM Systems Architect
-- Lead IAM Architect
+- Identity and Access Management Solutions Architect
+- Identity and Access Management Technical Architect
+- Identity and Access Management Infrastructure Architect
+- Identity and Access Management Security Architect
+- Identity and Access Management Enterprise Architect
+- Identity and Access Management Domain Architect
+- Identity and Access Management Systems Architect
+- Lead Identity and Access Management Architect
 
 ---
 
