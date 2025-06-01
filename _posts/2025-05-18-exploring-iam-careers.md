@@ -16,6 +16,7 @@ share: true
 related: true
 toc: true            # ← enable table of contents
 toc_sticky: true     # ← optional: makes the TOC stick to the side while scrolling
+layout: single
 ---
 
 ## 🔐 Introduction
