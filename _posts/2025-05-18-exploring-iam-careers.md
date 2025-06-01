@@ -1,5 +1,6 @@
 ---
 title: "Exploring Careers in Identity and Access Management (IAM)"
+layout: sidebar
 date: 2025-05-18T08:00:00-04:00
 categories:
   - identity
@@ -14,9 +15,8 @@ author_profile: true
 read_time: true
 share: true
 related: true
-toc: true            # ← enable table of contents
-toc_sticky: true     # ← optional: makes the TOC stick to the side while scrolling
-layout: single
+toc: true
+toc_sticky: true
 ---
 
 ## 🔐 Introduction
