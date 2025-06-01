@@ -1,0 +1,19 @@
+<aside class="sidebar sidebar--left">
+  {%- comment -%} Navigation links (unchanged) {%- endcomment -%} {%- if
+  site.data.navigation and page.sidebar.nav -%} {% include nav.html %} {%- endif
+  -%} {%- comment -%} NEW — TOC directly under nav {%- endcomment -%} {%- if
+  page.toc -%}
+  <nav class="toc {%- if page.toc_sticky -%}sticky{%- endif -%}">
+    <header>
+      <h4 class="nav__title">
+        <i class="fas fa-{{ page.toc_icon | default: 'list' }}"></i>
+        {{ page.toc_label | default: "On this page" }}
+      </h4>
+    </header>
+    {% include toc.html sanitize=true html=content h_min=1 h_max=6
+    class="toc__menu" skip_no_ids=true %}
+  </nav>
+  {%- endif -%} {%- comment -%} Author profile stays last {%- endcomment -%} {%-
+  if page.author_profile or site.author_profile -%} {% include
+  author-profile.html %} {%- endif -%}
+</aside>
