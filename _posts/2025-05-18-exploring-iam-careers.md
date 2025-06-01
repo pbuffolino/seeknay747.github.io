@@ -1,6 +1,5 @@
 ---
 title: "Exploring Careers in Identity and Access Management (IAM)"
-layout: sidebar
 date: 2025-05-18T08:00:00-04:00
 categories:
   - identity
