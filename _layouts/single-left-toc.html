@@ -1,36 +1,20 @@
 ---
-layout: default # <<< this pulls in the theme’s CSS/JS and overall shell
+layout: default
 ---
 
-{%- comment -%} Customized layout to put the Table of Contents below the
-navigation on the left sidebar. Based on Minimal Mistakes’ single.html. {%-
-endcomment -%} {%- if page.header.overlay_color or page.header.overlay_image or
-page.header.image -%} {%- include page__hero.html -%} {%- elsif
-page.header.video.id and page.header.video.provider -%} {%- include
-page__hero_video.html -%} {%- endif -%} {%- assign breadcrumbs_enabled =
+{%- comment -%} Custom layout: identical to Minimal Mistakes `single.html`
+except we call our own sidebar include (`sidebar-left-toc.html`) and REMOVE the
+old right-hand TOC block. {%- endcomment -%} {%- if page.header.overlay_color or
+page.header.overlay_image or page.header.image -%} {%- include page__hero.html
+-%} {%- elsif page.header.video.id and page.header.video.provider -%} {%-
+include page__hero_video.html -%} {%- endif -%} {%- assign breadcrumbs_enabled =
 site.breadcrumbs -%} {%- if page.breadcrumbs != null -%} {%- assign
 breadcrumbs_enabled = page.breadcrumbs -%} {%- endif -%} {%- if page.url != "/"
 and breadcrumbs_enabled -%} {%- unless paginator -%} {%- include
 breadcrumbs.html -%} {%- endunless -%} {%- endif -%}
 
 <div id="main" role="main">
-  {% include sidebar-left-toc.html %} {%- comment -%} ▾▾▾ TOC moved here so it
-  appears right under the nav in the left sidebar. {%- endcomment -%} {%- if
-  page.toc -%}
-  <aside class="sidebar__right {%- if page.toc_sticky -%}sticky{%- endif -%}">
-    <nav class="toc">
-      <header>
-        <h4 class="nav__title">
-          <i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i>
-          {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label
-          | default: "On this page" }}
-        </h4>
-      </header>
-      {%- include toc.html sanitize=true html=content h_min=1 h_max=6
-      class="toc__menu" skip_no_ids=true -%}
-    </nav>
-  </aside>
-  {%- endif -%}
+  {% include sidebar-left-toc.html %}
 
   <article
     class="page"
