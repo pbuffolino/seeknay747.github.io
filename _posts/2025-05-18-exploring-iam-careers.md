@@ -14,9 +14,11 @@ author_profile: true
 read_time: true
 share: true
 related: true
+toc: true            # ← enable table of contents
+toc_sticky: true     # ← optional: makes the TOC stick to the side while scrolling
 ---
 
-## Introduction
+## 🔐 Introduction
 
 When people say they “work in Identity,” it can mean a lot of different things, and that’s what makes this field both interesting and confusing for those just starting out. Identity and Access Management (IAM) is about making sure the right people and systems have access to the right things, and nothing more. That might sound simple, but in practice it spans everything from handling logins and managing accounts to enforcing security policies across thousands of users and applications.
 
@@ -24,7 +26,13 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 1. Identity and Access Management (IAM) Analyst
+## 🔍 A Quick Note on Role Scope
+
+In larger organizations, you’ll often find specialized IAM roles like the ones described below, each focused on a specific area such as governance, engineering, or architecture. In medium or smaller companies, these responsibilities are often combined into hybrid roles. For example, instead of a dedicated Identity and Access Management Administrator, you might see a System Administrator or Cloud Engineer managing access control as part of their broader responsibilities. Job titles and scopes can vary depending on company size, team structure, and priorities.
+
+---
+
+### 👩‍💼 Identity and Access Management (IAM) Analyst
 
 **Responsibilities:**
 
@@ -57,7 +65,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 2. Identity and Access Management (IAM) Administrator
+### 🛠️ Identity and Access Management (IAM) Administrator
 
 **Responsibilities:**
 
@@ -91,7 +99,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 3. Identity and Access Management (IAM) Developer
+### 🔧 Identity and Access Management (IAM) Developer
 
 **Responsibilities:**
 
@@ -122,7 +130,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 4. Identity and Access Management (IAM) Security Specialist
+### 🔒 Identity and Access Management (IAM) Security Specialist
 
 **Responsibilities:**
 
@@ -157,7 +165,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 ---
 
-### 5. Identity and Access Management (IAM) Architect
+### 🧱 Identity and Access Management (IAM) Architect
 
 **Responsibilities:**
 
