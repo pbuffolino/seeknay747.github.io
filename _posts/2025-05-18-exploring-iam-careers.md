@@ -16,6 +16,7 @@ share: true
 related: true
 toc: true
 toc_sticky: true
+classes: wide
 ---
 
 ## 🔐 Introduction
