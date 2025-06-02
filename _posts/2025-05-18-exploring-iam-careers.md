@@ -28,6 +28,7 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 
 > ## 👥 Workforce vs Customer Identity  
 > The role breakdowns in this article mostly focus on **workforce IAM**, which covers access for employees, contractors, service accounts, etc.  
+>
 > **Customer IAM (CIAM)** involves many of the same tools and titles, but the work is centered on user sign-up flows, privacy, consent, and fraud protection for external users. I'm not breaking every role out by identity type, but it’s worth knowing the difference as you explore this space.
 {: .notice--info}
 
