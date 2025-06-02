@@ -2,19 +2,26 @@
 title: "Cyber Crisis – A CXO’s Quest"
 date: 2025-04-12T22:00:00-04:00
 categories:
-  - blog
-tags:
-  - blog
   - tabletop
   - cybersecurity
+tags:
+  - game
   - ciso
   - leadership
+  - incident-response
   - training
+excerpt: "A tabletop game, styled after D&D, where executives respond to a live cyber breach and learn how incident response works under pressure."
+toc: true
+toc_sticky: true
+author_profile: true
+read_time: true
+share: true
+related: true
+class: ""
+last_modified_at: 2025-06-01T22:00:00-04:00
 ---
 
-# 🛡️ Cyber Crisis: A CXO’s Quest
-
-A tabletop simulation game I created (inspired by Dungeons & Dragons) to help players understand what happens inside a company during a cybersecurity incident.  
+**Cyber Crisis: A CXO’s Quest** is a tabletop simulation game I created (inspired by Dungeons & Dragons) to help players understand what happens inside a company during a cybersecurity incident.  
 
 Players take on executive roles—like CEO, CISO, or CFO—and respond to a simulated breach over a series of turns. The game is based on real-world incidents and focuses on how decisions are made, what’s at stake, and how different roles within a business react under pressure.
 
