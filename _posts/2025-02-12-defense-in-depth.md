@@ -34,14 +34,14 @@ This guide provides useful insights and actionable tips to help you enable secur
 Imagine losing your phone or laptop. Your photos, bank details, and passwords could all be at risk if someone else gets your device. Physical security is about protecting the “front door” to your device so strangers can’t just pick it up and access your life.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Use device locks** (PINs, passwords, or biometrics like fingerprints or facial recognition). This prevents unauthorized people from unlocking your device. Avoid easy codes like “1234” or birthdays, and don’t reuse device PINs/passwords across different devices.
 * **Never leave devices unattended** in public places, and be mindful of shoulder-surfing (someone looking over your shoulder). Opportunistic thieves can quickly snatch or peek at an unprotected device.
 * **Enable device tracking and remote wipe** so you can locate or erase your device if it’s lost or stolen. For example, smartphones and laptops offer features to find a lost device or wipe its data remotely.
 
 ### Platform-Specific Tips
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Windows:** Set up **Windows Hello** for biometric sign-in (fingerprint or face). This adds secure, convenient access to your PC.
 * **Apple (iPhone/iPad/Mac):** Enable **Apple’s Stolen Device Protection** (on iPhone with iOS 17.3 or later) to add an extra layer of security when your device is away from trusted locations. Also, turn on **Face ID or Touch ID** on your iPhone, iPad, and Mac for quick biometric unlocking. Be sure to enable **Find My** on all your Apple devices to locate, lock, or erase them remotely if needed.
@@ -55,7 +55,7 @@ Imagine losing your phone or laptop. Your photos, bank details, and passwords co
 Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wide open, right? Network security ensures only trusted people and devices can use your internet. This protects not just your connection but everything connected to it — from your smart TV to your work emails.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Secure your Wi-Fi network:** Change the default administrator password on your home router to a strong, unique password. Also use a strong Wi-Fi network key with modern encryption (WPA2 or WPA3) so only authorized people can connect.
 * **Keep your router updated:** Regularly install your router’s firmware updates from the manufacturer. Updates fix security weaknesses and improve protection.
@@ -70,7 +70,7 @@ Think of your home Wi-Fi like the door to your house. You wouldn’t leave it wi
 Imagine someone pretending to be you online; they could open credit cards in your name or even lock you out of your own accounts. IAM is like showing ID on the internet. It ensures only the real you can log in or make important changes to your accounts.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Use strong, unique passwords:** Create passwords that are long (at least 12 characters) and hard to guess. Use a mix of unrelated words or a passphrase. Never reuse passwords across different accounts — if one account is breached, you don’t want the same password to unlock others.
 * **Use a password manager:** A password manager can generate and securely store complex passwords so you don’t have to remember them all. Many phones and browsers have one built-in (like the Passwords app for iPhone), or you can use trusted apps like 1Password, Keeper, or Bitwarden.
@@ -99,7 +99,7 @@ Imagine someone pretending to be you online; they could open credit cards in you
 Have you ever downloaded an app and thought, “Why does it need access to my camera or contacts?” Application security is about trusting the tools on your phone or computer. We want to be sure the apps we install (like banking apps or social media) aren’t leaving us exposed to malware or privacy invasions.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Keep your apps updated:** Updates often include security fixes. Set your phone and computer to update apps automatically, if possible, so you always have the latest protections.
 * **Keep your operating system updated:** When your device prompts you to install an update (especially a security update), do it promptly. These patches fix known vulnerabilities that attackers could exploit.
@@ -108,7 +108,7 @@ Have you ever downloaded an app and thought, “Why does it need access to my ca
 * **Use antivirus/anti-malware protection:** Make sure you have security software active on your devices. For Windows, the built-in **Microsoft Defender** (Windows Security) provides solid antivirus protection. Mac computers have built-in malware protections as well. These tools can help catch and remove malicious software if it slips onto your device.
 
 ### Platform-Specific Tips
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Windows:** Use the **Microsoft Store** to install apps whenever possible, since apps there are vetted for security.
 * **Apple:** Download software from the **App Store** or from trusted developers only. On Mac, check your **System Settings > Privacy & Security** for App Permissions to control which programs can access sensitive information (files, camera, microphone, etc.). On iPhone, you can use **Safety Check** (in Settings) to review what data is being shared with others and quickly reset permissions if needed.
@@ -122,14 +122,14 @@ Have you ever downloaded an app and thought, “Why does it need access to my ca
 Your data holds precious memories and essential information. Data security means protecting important files (like family photos or critical documents) so they remain safe and accessible even if your device is lost or stolen. Cloud security extends this protection to your online life by securing backups, emails, and files stored in cloud accounts — keeping your information private no matter where it lives.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Enable device encryption:** Turn on full-disk encryption on your devices. This scrambles your data so that only someone with the right key (your password, PIN, or fingerprint) can read it. For example, Windows offers **BitLocker** and macOS has **FileVault** to encrypt your device’s storage.
 * **Back up your data:** Regularly back up important files and photos. Cloud backups (like OneDrive, iCloud, or Google Drive) can automatically save copies of your data, or you can use an external hard drive. Backups ensure that if your device crashes or is stolen, you don’t lose everything.
 * **Secure your cloud accounts:** Protect the accounts that hold your online data (email, cloud storage, etc.) with strong passwords and MFA (as discussed above). Take advantage of extra security settings available from providers. For instance, Google’s **Advanced Protection Program** offers additional safeguards for Google accounts that are at higher risk, requiring a physical security key and limiting third-party access.
 
 ### Platform-Specific Tips
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Windows:** Enable **BitLocker** on compatible Windows PCs to encrypt your hard drive, so your data remains locked without your login. Also, use **OneDrive** (built into Windows) or another trusted cloud service to automatically back up important folders like Documents and Photos.
 * **Apple:** Turn on **FileVault** on your Mac to encrypt all data on the disk. (For iPhones and iPads, device data is automatically encrypted when you use a passcode.) Use **iCloud Backup** on your iPhone/iPad to save your device settings, photos, and messages to iCloud, making it easy to restore if you get a new device. On Mac or PC, use **iCloud Drive** to securely store and sync files across your devices. Apple’s optional **Advanced Data Protection** for iCloud can extend end-to-end encryption to more of your iCloud data, meaning only you (with your devices) can access that information.
@@ -143,7 +143,7 @@ Your data holds precious memories and essential information. Data security means
 Think of monitoring your accounts like having a security camera for your digital life. It helps you catch suspicious activity early. If someone is trying to access your account or something isn’t right, you can spot it and take action before too much damage is done.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Use breach notification services:** Sign up for a service that alerts you if your email address or personal data appears in a known data breach. For example, the free site **Have I Been Pwned** can notify you if your email or phone number was exposed in a data leak, so you can promptly change passwords and secure those accounts.
 * **Regularly check account activity:** Take advantage of tools that show you where and when your accounts have been accessed. For instance, you can view the list of devices logged in to your Apple ID, review recent security events on your Google account, or check the login history on your Microsoft account. Make a habit of checking these for your important accounts (email, social media, banking). If you ever see a login or device that you don’t recognize, secure that account immediately by changing your password and removing that unknown device from your account.
@@ -157,7 +157,7 @@ Think of monitoring your accounts like having a security camera for your digital
 Think of this like having a digital first-aid kit. Despite all your precautions, accidents happen — a hacker might slip through, or you might lose a device. Incident response and recovery is about having a plan so that one breach or mistake doesn’t derail your digital life. It’s how you **respond** to issues and **recover** afterward.
 
 #### How to Protect Yourself:
-{: .notice--info .no-toc}
+{: .notice--info .no_toc}
 
 * **Keep backups for emergencies:** If ransomware locks your files or your hard drive fails, having recent backups (as mentioned in Cloud & Data Security) means you can restore your important data and carry on with minimal interruption.
 * **Know how to recover accounts and devices:** Take some time to learn the recovery options for your devices and accounts. For example, know how to reset your Apple ID or Google account password if you get locked out, and how to remotely lock or erase a lost phone. When trouble strikes, you’ll be able to act faster instead of scrambling to figure it out.
