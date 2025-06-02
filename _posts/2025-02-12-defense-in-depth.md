@@ -17,7 +17,7 @@ related: true
 toc: true
 toc_sticky: true
 last_modified_at: 2025-06-01T23:00:00-04:00
-classes: wide
+classes: ""
 ---
 
 # Defense in Depth - It's Not Just for Businesses: How to Layer Your Digital Security
@@ -39,14 +39,12 @@ Imagine losing your phone or laptop. Your photos, bank details, and passwords co
 * **Never leave devices unattended** in public places, and be mindful of shoulder-surfing (someone looking over your shoulder). Opportunistic thieves can quickly snatch or peek at an unprotected device.
 * **Enable device tracking and remote wipe** so you can locate or erase your device if it’s lost or stolen. For example, smartphones and laptops offer features to find a lost device or wipe its data remotely.
 
-<details markdown="1">
-<summary>Platform-Specific Tips</summary>
+### Platform-Specific Tips
+{: .notice--info}
 
 * **Windows:** Set up **Windows Hello** for biometric sign-in (fingerprint or face). This adds secure, convenient access to your PC.
 * **Apple (iPhone/iPad/Mac):** Enable **Apple’s Stolen Device Protection** (on iPhone with iOS 17.3 or later) to add an extra layer of security when your device is away from trusted locations. Also, turn on **Face ID or Touch ID** on your iPhone, iPad, and Mac for quick biometric unlocking. Be sure to enable **Find My** on all your Apple devices to locate, lock, or erase them remotely if needed.
 * **Android:** Set a strong screen lock on your phone (PIN or biometrics). Keep **Find My Device** enabled to help locate or remotely secure your phone if it goes missing.
-
-</details>
 
 ## 2. Network Security
 
@@ -105,14 +103,12 @@ Have you ever downloaded an app and thought, “Why does it need access to my ca
 * **Review app permissions:** Check what data and features your apps can access (location, contacts, camera, microphone, etc.). If something seems unnecessary for an app’s function, revoke that permission. For example, a simple flashlight app shouldn’t need to see your contacts.
 * **Use antivirus/anti-malware protection:** Make sure you have security software active on your devices. For Windows, the built-in **Microsoft Defender** (Windows Security) provides solid antivirus protection. Mac computers have built-in malware protections as well. These tools can help catch and remove malicious software if it slips onto your device.
 
-<details markdown="1">
-<summary>Platform-Specific Tips</summary>
+### Platform-Specific Tips
+{: .notice--info}
 
 * **Windows:** Use the **Microsoft Store** to install apps whenever possible, since apps there are vetted for security.
 * **Apple:** Download software from the **App Store** or from trusted developers only. On Mac, check your **System Settings > Privacy & Security** for App Permissions to control which programs can access sensitive information (files, camera, microphone, etc.). On iPhone, you can use **Safety Check** (in Settings) to review what data is being shared with others and quickly reset permissions if needed.
 * **Android:** Keep **Google Play Protect** on (it’s enabled by default in the Play Store settings) to automatically scan your apps for harmful behavior. Avoid “sideloading” apps (installing from outside the Play Store) unless you absolutely trust the source.
-
-</details>
 
 ## 5. Cloud & Data Security
 
@@ -127,14 +123,12 @@ Your data holds precious memories and essential information. Data security means
 * **Back up your data:** Regularly back up important files and photos. Cloud backups (like OneDrive, iCloud, or Google Drive) can automatically save copies of your data, or you can use an external hard drive. Backups ensure that if your device crashes or is stolen, you don’t lose everything.
 * **Secure your cloud accounts:** Protect the accounts that hold your online data (email, cloud storage, etc.) with strong passwords and MFA (as discussed above). Take advantage of extra security settings available from providers. For instance, Google’s **Advanced Protection Program** offers additional safeguards for Google accounts that are at higher risk, requiring a physical security key and limiting third-party access.
 
-<details markdown="1">
-<summary>Platform-Specific Tips</summary>
+### Platform-Specific Tips
+{: .notice--info}
 
 * **Windows:** Enable **BitLocker** on compatible Windows PCs to encrypt your hard drive, so your data remains locked without your login. Also, use **OneDrive** (built into Windows) or another trusted cloud service to automatically back up important folders like Documents and Photos.
 * **Apple:** Turn on **FileVault** on your Mac to encrypt all data on the disk. (For iPhones and iPads, device data is automatically encrypted when you use a passcode.) Use **iCloud Backup** on your iPhone/iPad to save your device settings, photos, and messages to iCloud, making it easy to restore if you get a new device. On Mac or PC, use **iCloud Drive** to securely store and sync files across your devices. Apple’s optional **Advanced Data Protection** for iCloud can extend end-to-end encryption to more of your iCloud data, meaning only you (with your devices) can access that information.
 * **Google/Android:** Make sure your Android phone’s built-in **Google Backup** is turned on (this will back up things like contacts, photos, and app data to your Google account). If you need the highest level of security on your Google account, consider enrolling in **Google’s Advanced Protection Program**. It requires using physical security keys and blocks untrusted apps from accessing your Google data, giving you strong protection against account hijacking.
-
-</details>
 
 ## 6. Monitoring and Logging
 
