@@ -17,7 +17,6 @@ related: true
 toc: true
 toc_sticky: true
 last_modified_at: 2025-06-01T23:00:00-04:00
-classes: ""
 ---
 
 ## Introduction
