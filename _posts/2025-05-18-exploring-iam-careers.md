@@ -14,7 +14,6 @@ author_profile: true
 read_time: true
 share: true
 related: true
-layout: single-left-toc
 classes: ""          # turn off “wide”
 toc: true
 toc_sticky: true
