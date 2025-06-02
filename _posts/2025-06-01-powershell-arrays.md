@@ -23,37 +23,82 @@ In this short video, I walk through the fundamentals of working with **PowerShel
 
 ### Topics Covered in the Video
 
-- Declaring an array using `@()`  
-  ` $myArray = @() `
-  
-- Populating arrays with string values  
-  Example: ` $myArray = "zero", "one", "two" `
+- **Declare an empty array**
 
-- Accessing array elements using indices  
-  - Index starts at 0  
-  - Negative indices like `-1` access from the end
+  ```powershell
+  $myArray = @()
+  ```
 
-- Selecting multiple elements with commas or ranges  
-  - Example: `$myArray[0,2]` or `$myArray[1..3]`
+- **Populate the array with strings**
 
-- Adding elements with `+=`  
-  - Note: This recreates the array and can be slow for large data sets
+  ```powershell
+  $myArray = "zero", "one", "two"
+  ```
 
-- Using `.GetType()` to inspect variable type
+- **Access elements by index**
 
-- Viewing available methods with `Get-Member`
+  - First element (`0`), last element (`-1`), or any position:
 
-- Checking array length with `.Length`
+    ```powershell
+    $myArray[0]      # zero
+    $myArray[-1]     # two
+    ```
 
-- Clearing array contents using `.Clear()`
+- **Select multiple elements**
 
-- Viewing and reusing console history with:
-  - `Get-History` (or `h`)
-  - `Invoke-History` (e.g. `r 3`)
+  ```powershell
+  $myArray[0,2]      # zero and two
+  $myArray[1..3]     # one, two, three
+  ```
 
-- Joining array elements into a string  
-  - Example: `-join ", "`
+- **Add elements with `+=`**  
+  _(recreates the array each time — fine for small lists)_
 
-- Splitting a string back into an array using `-split`
+  ```powershell
+  $myArray += "three"
+  ```
 
-This is an introductory video meant to get you comfortable with arrays in the PowerShell console. Arrays are one of the most common and useful data structures you’ll use in scripting. Get to know them well!
+- **Inspect the variable type**
+
+  ```powershell
+  $myArray.GetType()
+  ```
+
+- **List available members**
+
+  ```powershell
+  $myArray | Get-Member
+  ```
+
+- **Check array length**
+
+  ```powershell
+  $myArray.Length
+  ```
+
+- **Clear the array**
+
+  ```powershell
+  $myArray.Clear()
+  ```
+
+- **Review and reuse console history**
+
+  ```powershell
+  Get-History      # alias: h
+  Invoke-History 3 # alias: r 3
+  ```
+
+- **Join array elements into a string**
+
+  ```powershell
+  $joined = $myArray -join ", "
+  ```
+
+- **Split a string back into an array**
+
+  ```powershell
+  $newArray = $joined -split ", "
+  ```
+
+Arrays are one of the most common and useful data structures you’ll use in PowerShell scripting—get to know them well. Thanks for watching!
