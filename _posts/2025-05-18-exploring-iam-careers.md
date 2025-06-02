@@ -14,6 +14,8 @@ author_profile: true
 read_time: true
 share: true
 related: true
+toc: true
+toc_sticky: true
 last_modified_at: 2025-05-25T14:30:00-04:00
 ---
 
