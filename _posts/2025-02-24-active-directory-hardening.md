@@ -1,13 +1,22 @@
 ---
 title: "Blog Highlight: Active Directory Hardening Blog Series"
 date: 2025-02-24T11:30:00-04:00
+layout: single
 categories:
-  - blog
-tags:
-  - blog
   - activedirectory
   - security
+tags:
+  - hardening
+  - ldap
+  - kerberos
+  - smb
+  - privilege
+description: "A quick spotlight on Jerry Devore’s excellent AD Hardening series, with links to each post and why they matter."
+share: true
+related: true
+last_modified_at: 2025-06-01T23:00:00-04:00
 ---
+
 
 [Jerry Devore](https://techcommunity.microsoft.com/users/jerrydevore/199458), a Senior Premier Field Engineer at Microsoft (at the time of this post), has created an absolute must-read blog series on Active Directory Hardening. Even if AD hardening isn’t your primary focus, this is one of the most comprehensive collections of AD knowledge I’ve come across. If you manage Active Directory, you need to understand the concepts he covers.
 
