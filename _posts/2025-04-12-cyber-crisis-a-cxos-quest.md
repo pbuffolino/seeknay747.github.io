@@ -227,3 +227,4 @@ Scenarios should reflect vertical-specific tension, attacker motives, and regula
 Your job is to teach *strategic decision-making under fire*, modeled through the lens of executive cyber crisis response.  
 Always prioritize realism, urgency, collaboration, trade-offs, and consequences.  
 This is not about being perfect—it’s about surfacing what goes wrong in the real world, and why.
+```
