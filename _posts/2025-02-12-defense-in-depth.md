@@ -20,7 +20,7 @@ last_modified_at: 2025-06-01T23:00:00-04:00
 classes: ""
 ---
 
-# Defense in Depth - It's Not Just for Businesses: How to Layer Your Digital Security
+## Introduction
 
 Protecting yourself online can feel challenging at times, but there’s an approach that works well and is used by businesses everywhere: **Defense in Depth**. Think of it like peeling an onion; security comes in layers, and each one adds extra protection against threats.
 
