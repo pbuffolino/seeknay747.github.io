@@ -16,7 +16,7 @@ share: true
 related: true
 toc: true
 toc_sticky: true
-last_modified_at: 2025-05-25T14:30:00-04:00
+last_modified_at: 2024-06-09T00:00:00-04:00
 ---
 
 ## 🔐 Introduction
@@ -29,7 +29,9 @@ This post breaks down the types of IAM jobs that exist today; some technical, so
 > 
 > The role breakdowns in this article mostly focus on **Workforce IAM**, which covers access for employees, contractors, service accounts, etc.  
 >
-> **Customer IAM (CIAM)** involves many of the same tools and titles, but the work is centered on user sign-up flows, privacy, consent, and fraud protection for external users. I'm not breaking every role out by identity type, but it’s worth knowing the difference as you explore this space.
+> **Customer IAM (CIAM)** involves many of the same tools and titles, but the work is centered on user sign-up flows, privacy, consent, and fraud protection for external users. 
+>
+> I'm not breaking every role out by identity type, but it’s worth knowing the difference as you explore this space.
 {: .notice--info}
 
 ---
