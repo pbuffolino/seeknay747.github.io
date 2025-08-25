@@ -112,21 +112,7 @@ The comments told two stories: lots of creative ways to build it, and lots of pe
 
 ## 🗺️ Flowchart (template the assistant includes in plans)
 
-```mermaid
-flowchart LR
-  subgraph Home_Network
-    Router[Router or Mesh]
-    WiFi[Wi-Fi]
-  end
-  Phone[User phone app]
-  Hub[Home Assistant or Platform]
-  Sensor[Sensor or Smart Plug]
-  Target[Device or Scene]
-  Router --> WiFi --> Hub
-  Phone --> Hub
-  Hub --> Sensor
-  Hub --> Target
-```
+[![ha-flowchart.png](https://raw.githubusercontent.com/seeknay747/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)](https://raw.githubusercontent.com/seeknay747/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)
 
 ---
 
