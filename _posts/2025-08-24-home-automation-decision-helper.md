@@ -112,7 +112,7 @@ The comments told two stories: lots of creative ways to build it, and lots of pe
 
 ## 🗺️ Flowchart (template the assistant includes in plans)
 
-[![ha-flowchart.png](https://raw.githubusercontent.com/seeknay747/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)](https://raw.githubusercontent.com/seeknay747/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)
+[![ha-flowchart.png](https://raw.githubusercontent.com/pbuffolino/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)](https://raw.githubusercontent.com/pbuffolino/seeknay747.github.io/refs/heads/master/assets/images/ha-flowchart.png?raw=true)
 
 ---
 
