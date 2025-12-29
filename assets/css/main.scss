@@ -1,0 +1,45 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Custom Overrides */
+
+/* Typography */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px; /* Slightly larger for easier reading */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+/* Rounded corners for a friendlier feel */
+.archive__item-teaser,
+.archive__item,
+.btn,
+input, 
+textarea {
+  border-radius: 12px !important;
+}
+
+/* Soften the layout */
+.page__inner-wrap {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2em;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Improve header spacing */
+.masthead {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: none;
+}
