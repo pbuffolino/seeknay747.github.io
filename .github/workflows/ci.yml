@@ -1,0 +1,24 @@
+name: Test Jekyll Build
+
+on:
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true     # runs 'bundle install' and caches installed gems automatically
+
+    - name: Build with Jekyll
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
