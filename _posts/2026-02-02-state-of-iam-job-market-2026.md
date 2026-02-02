@@ -10,7 +10,7 @@ tags:
   - it-security
   - salary-guide
   - job-market
-  - 2026
+  - "2026"
 excerpt: "An in-depth analysis of US hiring trends, salary bands, and skill requirements for Identity & Access Management professionals in 2026."
 author_profile: true
 read_time: true
@@ -31,9 +31,11 @@ The "IAM Administrator" role—historically defined by manual provisioning and G
 At the entry level, the "IAM Analyst" title has bifurcated. One track handles support tickets; the other handles Governance, Risk, and Compliance (GRC). The money is in the latter.
 
 <div class="notice--primary" markdown="1">
+
 **📈 Interactive Infographic**
 
 For a visual breakdown of this data, see our [**Interactive IAM Job Market 2026 Infographic**](/assets/infographics/iam-job-market-2026.html).
+
 </div>
 
 ## The Market Reality
