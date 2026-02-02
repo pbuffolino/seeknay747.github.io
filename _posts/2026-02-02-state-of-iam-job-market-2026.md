@@ -10,7 +10,7 @@ tags:
   - it-security
   - salary-guide
   - job-market
-  - 2026
+  - "2026"
 excerpt: "An in-depth analysis of US hiring trends, salary bands, and skill requirements for Identity & Access Management professionals in 2026."
 author_profile: true
 read_time: true
