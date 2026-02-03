@@ -16,8 +16,8 @@ author_profile: true
 read_time: true
 share: true
 related: true
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
 last_modified_at: 2026-02-02T00:00:00-05:00
 header:
   overlay_color: "#0F172A"
@@ -25,6 +25,71 @@ header:
 ---
 
 > *Heads up: These are my own views. I used Google Gemini Deep Research for the heavy lifting, but I promise a human reviewed every word.*
+
+<style>
+  details.toc-container {
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 0;
+    margin: 20px 0 24px 0;
+  }
+  details.toc-container summary {
+    padding: 14px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details.toc-container summary::-webkit-details-marker {
+    display: none;
+  }
+  details.toc-container summary::before {
+    content: "▶";
+    font-size: 0.75em;
+    transition: transform 0.2s ease;
+  }
+  details.toc-container[open] summary::before {
+    transform: rotate(90deg);
+  }
+  details.toc-container .toc-content {
+    padding: 0 18px 14px 18px;
+    border-top: 1px solid #e1e4e8;
+  }
+  details.toc-container .toc-content ul {
+    margin: 12px 0 0 0;
+    padding-left: 20px;
+  }
+  details.toc-container .toc-content li {
+    margin: 6px 0;
+  }
+</style>
+
+<details class="toc-container">
+<summary>📖 Table of Contents</summary>
+<div class="toc-content" markdown="1">
+
+- [The Market Reality](#the-market-reality)
+  - [The AI Factor](#the-ai-factor)
+- [Title Changes](#title-changes)
+  - [The Death of the "System Admin"](#the-death-of-the-system-admin)
+  - [The Analyst Split](#the-analyst-split)
+  - [CIAM vs. Workforce: Two Different Worlds](#ciam-vs-workforce-two-different-worlds)
+- [Salary Data (US Market)](#salary-data-us-market)
+  - [Geography Still Matters](#geography-still-matters)
+  - [The Premium Kickers](#the-premium-kickers)
+- [The Technical Stack](#the-technical-stack)
+- [Certification Strategy](#certification-strategy)
+  - [Entry-Level (0-2 Years)](#entry-level-0-2-years)
+  - [Practitioner (2-5 Years)](#practitioner-2-5-years)
+  - [The "Lab" Shortcut](#the-lab-shortcut)
+- [What Interviewers Actually Ask](#what-interviewers-actually-ask)
+- [Paths In](#paths-in)
+
+</div>
+</details>
 
 
 
