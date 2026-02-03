@@ -24,6 +24,9 @@ header:
   overlay_filter: "0.7"
 ---
 
+> *Heads up: These are my own views. I used Google Gemini Deep Research for the heavy lifting, but I promise a human reviewed every word.*
+
+
 
 <style>
   .stats-card {
@@ -358,7 +361,10 @@ The Architect questions are partly technical, partly political. You're being tes
 
 ## Paths In
 
-**From Help Desk:** Leverage your access. Ask the current IAM team if you can handle their ticket backlog. Use the Operations Analyst role as a stepping stone, but start learning Python and SC-300 material immediately to pivot into Engineering.
+There are many paths into IAM; these are just examples. None of this is set in stone; the beauty of technology is that people break the mold all the time.
+
+
+**From Help Desk:** Leverage your access. Ask the current IAM team if you can handle their ticket backlog. Use the Operations Analyst role as a stepping stone, but start learning Python or PowerShell and SC-300 material immediately to pivot into Engineering.
 
 **From a Non-Tech Background:** Target the Governance Analyst track. Highlight attention to detail, process management, and writing ability. Learn the language of compliance (SOX, GDPR, HIPAA). You'll become valuable to the CISO during audit season.
 
