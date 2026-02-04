@@ -302,7 +302,7 @@ You can no longer survive on "Active Directory Users and Computers."
     *   **OAuth 2.0:** For authorization, which defines what you can *do* once you're logged in.
     *   **SAML 2.0:** The legacy standard. Still everywhere in enterprise SaaS (Salesforce, Workday).
     *   **SCIM:** The unsung hero. This is the API standard for automatic user provisioning. When HR creates an employee, SCIM creates their Slack account.
-3.  **Governance (IGA):** SailPoint remains the standard for big companies. It's complex, ugly, and pays extremely well. Saviynt is the up-and-comer.
+3.  **Governance (IGA):** SailPoint remains the standard for big companies. It's complex and demanding, and pays extremely well. Saviynt is the up-and-comer.
 4.  **Secrets & PAM:** CyberArk and HashiCorp Vault. This is where the machine identity work happens. If you understand secrets rotation, you're ahead of most candidates.
 
 <div class="stats-card">
