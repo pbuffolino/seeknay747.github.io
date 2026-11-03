@@ -7,7 +7,7 @@ AI guide; the `README.md` is for humans and links here.
 
 - **Live site:** https://seeknay.com
 - **Repo:** `pbuffolino/seeknay747.github.io` — **PUBLIC**
-- **Stack:** Jekyll 3.9.5 (via `github-pages` gem) + **Minimal Mistakes remote theme** (`remote_theme: mmistakes/minimal-mistakes`), skin `air`.
+- **Stack:** Jekyll 3.10.0 (via the pinned `github-pages` 232 gem) + **Minimal Mistakes remote theme** (`remote_theme: mmistakes/minimal-mistakes`), skin `air`.
 - **Hosting/deploy:** GitHub Pages builds automatically from the **`master`** branch. There is no separate deploy step — merging to `master` publishes the site.
 
 ## Public repo — security & privacy first

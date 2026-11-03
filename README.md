@@ -10,7 +10,7 @@ on GitHub Pages.
 
 ## Tech stack
 
-- **Jekyll 3.9.5** via the `github-pages` gem (pins versions to match GitHub Pages).
+- **Jekyll 3.10.0** via the pinned `github-pages` 232 gem (pins versions to match GitHub Pages).
 - **Minimal Mistakes** remote theme (`remote_theme: mmistakes/minimal-mistakes`), skin `air`.
 - **Markdown (Kramdown)** for content, **Liquid** for templating, **SCSS** for style overrides.
 - Client-side **Lunr** search. Plugins: `jekyll-paginate`, `jekyll-sitemap`, `jekyll-gist`,
