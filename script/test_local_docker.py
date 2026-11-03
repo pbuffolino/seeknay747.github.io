@@ -19,6 +19,9 @@ class GateBoundaries(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="jekyll-gate-test-")
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
+        endpoint = patch.object(GATE, "DOCKER_ENDPOINT", "unix:///fixture.sock")
+        endpoint.start()
+        self.addCleanup(endpoint.stop)
 
     def archive(self, name, kind=tarfile.REGTYPE):
         archive = self.root / "source.tar"
@@ -101,6 +104,63 @@ class GateBoundaries(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "ownership"):
                 GATE.cleanup_owned("container", "this-run")
             mutate.assert_not_called()
+
+    def test_final_bounds_reject_finished_over_budget_work(self):
+        work = self.root / "work"
+        work.mkdir()
+        log = self.root / "gate.log"
+        log.write_text("")
+        with self.assertRaisesRegex(RuntimeError, "time bound"):
+            GATE.check_bounds(work, log, 0, GATE.TIMEOUT + 1)
+        (work / "large").write_bytes(b"data")
+        with patch.object(GATE, "MAX_WORK", 3):
+            with self.assertRaisesRegex(RuntimeError, "size bound"):
+                GATE.check_bounds(work, log, 0, 1)
+        with log.open("wb") as stream:
+            stream.truncate(32 * 1024**2 + 1)
+        with self.assertRaisesRegex(RuntimeError, "size bound"):
+            GATE.check_bounds(work, log, 0, 1)
+
+    def test_evidence_root_refuses_symlink_escape_before_creation(self):
+        checkout = self.root / "checkout"
+        checkout.mkdir()
+        outside = self.root / "outside"
+        outside.mkdir()
+        (checkout / "vendor").symlink_to(outside, target_is_directory=True)
+        with self.assertRaisesRegex(RuntimeError, "Evidence root"):
+            GATE.evidence_base(checkout)
+        self.assertFalse((outside / "local-checks").exists())
+
+    def test_uncertain_cleanup_retains_every_mounted_input(self):
+        source = self.root / "input"
+        source.mkdir()
+        (source / "source.txt").write_text("synthetic")
+        archive = self.root / "source.tar"
+        archive.write_bytes(b"synthetic archive")
+        self.assertFalse(GATE.retire_inputs(self.root, source, archive, False))
+        self.assertTrue((source / "source.txt").is_file())
+        self.assertTrue(archive.is_file())
+
+    def test_zero_exit_code_without_terminal_clean_state_never_passes(self):
+        good = {"Status": "exited", "Running": False, "OOMKilled": False, "Dead": False, "Error": "", "ExitCode": 0}
+        GATE.validate_terminal_state(good)
+        for different in [{"Status": "running", "Running": True}, {"Status": "created"}, {"OOMKilled": True}, {"Error": "runtime failure"}, {"ExitCode": 1}, {"ExitCode": False}]:
+            with self.subTest(different=different):
+                with self.assertRaisesRegex(RuntimeError, "clean exited"):
+                    GATE.validate_terminal_state({**good, **different})
+
+    def test_every_docker_operation_pins_daemon_and_strips_selectors(self):
+        with patch.dict(GATE.os.environ, {"DOCKER_CONTEXT": "remote", "DOCKER_HOST": "tcp://remote:2376", "DOCKER_CERT_PATH": "/not-mounted"}):
+            self.assertEqual(GATE.docker_args(["docker", "image", "inspect", "fixture"])[:3], ["docker", "--host", "unix:///fixture.sock"])
+            self.assertNotIn("DOCKER_CONTEXT", GATE.docker_environment())
+            self.assertNotIn("DOCKER_HOST", GATE.docker_environment())
+            self.assertNotIn("DOCKER_CERT_PATH", GATE.docker_environment())
+        with self.assertRaisesRegex(RuntimeError, "local Unix"):
+            GATE.require_local_docker("tcp://context:2376", "unix:///host.sock")
+
+    def test_required_dependency_receipt_cannot_silently_disappear(self):
+        with self.assertRaisesRegex(RuntimeError, "evidence is missing"):
+            GATE.copy_artifact(self.root / "missing", self.root / "receipt", self.root, True)
 
 
 if __name__ == "__main__":

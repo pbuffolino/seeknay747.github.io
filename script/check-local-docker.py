@@ -22,6 +22,7 @@ TIMEOUT = 1200
 MAX_WORK = 2 * 1024**3
 MAX_SOURCE = 128 * 1024**2
 LABEL = "com.seeknay.jekyll-local-gate"
+DOCKER_ENDPOINT = None
 COMMAND = r'''set -euo pipefail
 mkdir -p /work/source /work/tmp /work/home /work/bootstrap
 cp -R /input/. /work/source/
@@ -35,8 +36,28 @@ bash script/check-local.sh native
 '''
 
 
+def docker_args(args):
+    if DOCKER_ENDPOINT is None:
+        if args[1] != "context":
+            raise RuntimeError("Validate a local Docker endpoint before operations")
+        return args
+    return ["docker", "--host", DOCKER_ENDPOINT, *args[1:]]
+
+
+def docker_environment():
+    if DOCKER_ENDPOINT is None:
+        return dict(os.environ)  # Discovery only, never an engine operation.
+    selectors = {"DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_TLS_VERIFY", "DOCKER_CERT_PATH"}
+    return {key: value for key, value in os.environ.items() if key not in selectors}
+
+
+def docker_run(args, **kwargs):
+    return subprocess.run(docker_args(args), env=docker_environment(), **kwargs)
+
+
 def call(args, **kwargs):
-    return subprocess.run(args, check=True, text=True, capture_output=True, timeout=60, **kwargs).stdout.strip()
+    invoke = docker_run if args[0] == "docker" else subprocess.run
+    return invoke(args, check=True, text=True, capture_output=True, timeout=60, **kwargs).stdout.strip()
 
 
 def git(root, *args):
@@ -91,7 +112,11 @@ def disk_bytes(root):
     return total
 
 
-def copy_artifact(source, target, work):
+def copy_artifact(source, target, work, required=False):
+    if source.is_symlink():
+        raise RuntimeError("Refusing an escaping or nonregular output artifact")
+    if required and not source.exists():
+        raise RuntimeError("Required dependency evidence is missing")
     if source.exists():
         if source.is_symlink() or not source.resolve().is_relative_to(work.resolve()) or not stat.S_ISREG(source.stat().st_mode) or source.stat().st_size > 8 * 1024**2:
             raise RuntimeError("Refusing an escaping or nonregular output artifact")
@@ -120,27 +145,80 @@ def container_args(name, nonce, source, work, uid, gid):
 
 
 def cleanup_owned(identifier, nonce):
-    result = subprocess.run(["docker", "inspect", "--format", '{{json .Config.Labels}}', identifier],
-                            capture_output=True, text=True, timeout=15)
-    if result.returncode:
-        # An absent container needs no deletion; distinguish it from an API outage.
-        missing = subprocess.run(["docker", "ps", "-aq", "--no-trunc", "--filter", f"label={LABEL}={nonce}"],
-                                 capture_output=True, text=True, timeout=15)
-        if missing.returncode or missing.stdout.strip():
-            raise RuntimeError("Cannot establish owned-container cleanup")
-        return
-    if json.loads(result.stdout).get(LABEL) != nonce:
-        raise RuntimeError("Refusing to remove a container without this run's ownership label")
-    call(["docker", "rm", "--force", identifier])
+    result = docker_run(["docker", "inspect", "--format", '{{json .Config.Labels}}', identifier],
+                        capture_output=True, text=True, timeout=15)
+    if result.returncode == 0:
+        if json.loads(result.stdout).get(LABEL) != nonce:
+            raise RuntimeError("Refusing to remove a container without this run's ownership label")
+        call(["docker", "rm", "--force", identifier])
+    # A successful removal acknowledgement alone is not final absence evidence.
+    absent = docker_run(["docker", "ps", "-aq", "--no-trunc", "--filter", f"label={LABEL}={nonce}"],
+                        capture_output=True, text=True, timeout=15)
+    if absent.returncode or absent.stdout.strip():
+        raise RuntimeError("Cannot establish owned-container cleanup")
+
+
+def evidence_base(root):
+    root = root.resolve()
+    vendor, base = root / "vendor", root / "vendor/local-checks"
+    if vendor.is_symlink() or base.is_symlink() or not base.resolve().is_relative_to(root):
+        raise RuntimeError("Evidence root must remain inside the owning checkout without symlink indirection")
+    return base
+
+
+def check_bounds(work, log, started, now=None):
+    elapsed = (time.monotonic() if now is None else now) - started
+    if elapsed > TIMEOUT:
+        raise RuntimeError("Local container gate exceeded its time bound")
+    if disk_bytes(work) > MAX_WORK or log.stat().st_size > 32 * 1024**2:
+        raise RuntimeError("Local gate exceeded its owned scratch/log size bound")
+
+
+def validate_terminal_state(state):
+    if (state.get("Status") != "exited" or state.get("Running") is not False
+            or state.get("OOMKilled") is not False or state.get("Dead") is not False
+            or state.get("Error") not in (None, "")
+            or type(state.get("ExitCode")) is not int or state["ExitCode"] != 0):
+        raise RuntimeError("Container did not reach a clean exited state")
+
+
+def retire_inputs(run, source, archive, container_absent):
+    if not container_absent:
+        return False  # Retain every mounted input for exact-handle recovery.
+    if source.parent != run or archive.parent != run or source.is_symlink():
+        raise RuntimeError("Refusing staging cleanup outside this run")
+    shutil.rmtree(source)
+    archive.unlink(missing_ok=True)
+    return True
+
+
+def reap_client(process):
+    if process is not None and process.poll() is None:
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            process.wait(timeout=5)
 
 
 def main():
+    global DOCKER_ENDPOINT
     head = clean_head(ROOT)
-    endpoint = call(["docker", "context", "inspect", "--format", '{{.Endpoints.docker.Host}}'])
-    require_local_docker(endpoint, os.environ.get("DOCKER_HOST"))
+    context = call(["docker", "context", "show"])
+    endpoint = call(["docker", "context", "inspect", context, "--format", '{{.Endpoints.docker.Host}}'])
+    override = os.environ.get("DOCKER_HOST")
+    require_local_docker(endpoint, override)
+    DOCKER_ENDPOINT = endpoint if os.environ.get("DOCKER_CONTEXT") or not override else override
     if shutil.disk_usage(ROOT).free < 5 * 1024**3:
         raise RuntimeError("Local validation needs at least 5 GiB available; no cleanup is automatic")
-    base = ROOT / "vendor/local-checks"
+    base = evidence_base(ROOT)
     call(["git", "-C", str(ROOT), "check-ignore", "--quiet", str(base)])
     base.mkdir(parents=True, exist_ok=True)
     run = Path(tempfile.mkdtemp(prefix="gate-", dir=base))
@@ -152,16 +230,18 @@ def main():
                "started_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                "timeout_seconds": TIMEOUT, "max_work_bytes": MAX_WORK,
                "cpus": 2, "memory": "2g", "source_input": "clean git archive; read-only mount",
-               "container_name": name, "pass": False}
+               "container_name": name, "local_docker_endpoint": DOCKER_ENDPOINT, "pass": False}
     process = None
     identifier = name
     code = 1
+    checks_completed = False
+    archive = run / "source.tar"
     try:
         try:
             image = json.loads(call(["docker", "image", "inspect", IMAGE]))[0]
         except subprocess.CalledProcessError:
             with (run / "image-pull.log").open("w") as log:
-                subprocess.run(["docker", "pull", "--platform", PLATFORM, IMAGE], check=True,
+                docker_run(["docker", "pull", "--platform", PLATFORM, IMAGE], check=True,
                                stdout=log, stderr=subprocess.STDOUT, timeout=300)
             image = json.loads(call(["docker", "image", "inspect", IMAGE]))[0]
         if image["Os"] != "linux" or image["Architecture"] != "amd64" or IMAGE not in image["RepoDigests"]:
@@ -185,48 +265,56 @@ def main():
             raise RuntimeError("Invalid created-container identity")
         receipt["container_id"] = identifier
         with (run / "gate.log").open("w") as log:
-            process = subprocess.Popen(["docker", "start", "--attach", identifier], stdout=log,
-                                       stderr=subprocess.STDOUT, start_new_session=True)
+            process = subprocess.Popen(docker_args(["docker", "start", "--attach", identifier]), stdout=log,
+                                       stderr=subprocess.STDOUT, start_new_session=True, env=docker_environment())
+            receipt["client_pid"] = process.pid
             started = time.monotonic()
             while process.poll() is None:
-                if time.monotonic() - started > TIMEOUT:
-                    raise RuntimeError("Local container gate exceeded its time bound")
-                if disk_bytes(work) > MAX_WORK or (run / "gate.log").stat().st_size > 32 * 1024**2:
-                    raise RuntimeError("Local gate exceeded its owned scratch/log size bound")
+                check_bounds(work, run / "gate.log", started)
                 time.sleep(2)
+        # Recheck after exit: a process can cross a limit between polling ticks.
+        check_bounds(work, run / "gate.log", started)
         if process.returncode:
             raise RuntimeError("Local container gate failed; inspect retained gate.log")
-        code = int(call(["docker", "inspect", "--format", '{{.State.ExitCode}}', identifier]))
-        if code:
-            raise RuntimeError(f"Container exited {code}; no validation pass")
+        state = json.loads(call(["docker", "inspect", "--format", '{{json .State}}', identifier]))
+        validate_terminal_state(state)
+        receipt["terminal_state"] = {key: state[key] for key in ("Status", "Running", "ExitCode", "OOMKilled", "Dead")}
+        code = 0
         if clean_head(ROOT) != head:
             raise RuntimeError("Source changed during validation; new-head evidence is required")
-        receipt["pass"] = True
+        checks_completed = True
     except Exception as error:
         receipt["error"] = str(error)
         code = code or 1
     finally:
+        absent = False
         try:
             cleanup_owned(identifier, nonce)
+            absent = True
             receipt["owned_container_removed"] = True
         except Exception as error:
-            receipt["cleanup_error"] = str(error); receipt["pass"] = False; code = 1
-        if process is not None and process.poll() is None:
-            os.killpg(process.pid, signal.SIGTERM)
-            try: process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL); process.wait(timeout=5)
+            receipt["cleanup_error"] = str(error); code = 1
+            receipt["owned_container_removed"] = False
+            receipt["retained_recovery_path"] = str(run)
         try:
-            copy_artifact(work / "source/Gemfile.lock", run / "Gemfile.lock", work)
-            copy_artifact(work / "resolved-gems.txt", run / "resolved-gems.txt", work)
+            reap_client(process)
+            receipt["client_reaped"] = True
         except Exception as error:
-            receipt["artifact_error"] = str(error); receipt["pass"] = False; code = 1
+            receipt["client_reap_error"] = str(error); code = 1; absent = False
+            receipt["retained_recovery_path"] = str(run)
+        if absent:
+            try:
+                copy_artifact(work / "source/Gemfile.lock", run / "Gemfile.lock", work, checks_completed)
+                copy_artifact(work / "resolved-gems.txt", run / "resolved-gems.txt", work, checks_completed)
+                receipt["staging_removed"] = retire_inputs(run, source, archive, True)
+            except Exception as error:
+                receipt["artifact_or_staging_error"] = str(error); code = 1
+        else:
+            receipt["staging_removed"] = retire_inputs(run, source, archive, False)
+        receipt["pass"] = checks_completed and code == 0 and absent and receipt.get("staging_removed") is True
         receipt["finished_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         receipt["exit_code"] = code
         (run / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
-        # Only this run's immutable staging is retired; output/cache/evidence remain.
-        shutil.rmtree(source)
-        (run / "source.tar").unlink(missing_ok=True)
     print(f"Local Linux validation {'PASS' if receipt['pass'] else 'BLOCKED'}: {run / 'receipt.json'}")
     return code
 
