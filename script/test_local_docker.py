@@ -58,7 +58,11 @@ class GateBoundaries(unittest.TestCase):
         subprocess.run(["git", "-C", str(checkout), "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid", "-c", "core.hooksPath=/dev/null", "commit", "-qm", "fixture"], check=True)
         head = GATE.clean_head(checkout)
         archive = self.root / "git.tar"
-        subprocess.run(["git", "-C", str(checkout), "archive", "--output", str(archive), head], check=True)
+        # Ambient selectors must not redirect the binary archive operation.
+        with patch.dict(GATE.os.environ, {"GIT_DIR": str(self.root / "unrelated.git"),
+                                         "GIT_WORK_TREE": str(self.root / "unrelated-tree")}):
+            self.assertEqual(GATE.clean_head(checkout), head)
+            GATE.archive_source(checkout, head, archive)
         GATE.extract_source(archive, self.root / "input")
         self.assertTrue((self.root / "input/public.txt").is_file())
         self.assertFalse((self.root / "input/ignored.txt").exists())
@@ -168,6 +172,42 @@ class GateBoundaries(unittest.TestCase):
         for variable in GATE.PROXY_VARIABLES:
             self.assertIn(variable + "=", values)
         self.assertIn("Ambient proxy environment refused", GATE.COMMAND)
+
+    def test_actual_failure_receipt_is_durable_before_docker_create(self):
+        receipt_file = self.root / "receipt.json"
+        record = GATE.OwnedReceipt(receipt_file)
+        report = {"pass": False, "exit_code": 1, "container_name": "owned",
+                  "ownership_nonce": "nonce", "local_docker_endpoint": "unix:///fixture.sock",
+                  "source_sha": "synthetic-head", "staging_path": str(self.root)}
+        def create(args):
+            self.assertEqual(args, ["docker", "create", "fixture"])
+            self.assertEqual(json.loads(receipt_file.read_text()), report)
+            self.assertEqual(receipt_file.stat().st_mode & 0o777, 0o600)
+            return "fixture-id"
+        with patch.object(GATE, "call", side_effect=create), patch.object(GATE.os, "fsync", wraps=GATE.os.fsync) as sync:
+            self.assertEqual(GATE.create_container(["docker", "create", "fixture"], record, report), "fixture-id")
+            sync.assert_called_once()
+        record.finalize({**report, "pass": True, "exit_code": 0})
+        self.assertTrue(json.loads(receipt_file.read_text())["pass"])
+
+    def test_unknown_receipt_replacement_edit_or_symlink_is_not_overwritten(self):
+        for mutation in ("replacement", "edit", "symlink"):
+            with self.subTest(mutation=mutation):
+                receipt_file = self.root / (mutation + ".json")
+                record = GATE.OwnedReceipt(receipt_file)
+                record.prepare({"pass": False})
+                other = self.root / (mutation + ".other")
+                other.write_text("unrelated evidence")
+                if mutation == "replacement":
+                    other.replace(receipt_file)
+                elif mutation == "edit":
+                    receipt_file.write_text("unrelated evidence")
+                else:
+                    receipt_file.unlink()
+                    receipt_file.symlink_to(other)
+                with self.assertRaises((RuntimeError, OSError)):
+                    record.finalize({"pass": True})
+                self.assertEqual(receipt_file.read_text(), "unrelated evidence")
 
 
 if __name__ == "__main__":

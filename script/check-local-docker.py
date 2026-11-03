@@ -63,9 +63,62 @@ def call(args, **kwargs):
     return invoke(args, check=True, text=True, capture_output=True, timeout=60, **kwargs).stdout.strip()
 
 
+def git_environment():
+    return {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+
+
 def git(root, *args):
-    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
-    return call(["git", "-C", str(root), *args], env=env)
+    return call(["git", "-C", str(root), *args], env=git_environment())
+
+
+def archive_source(root, head, archive):
+    with archive.open("xb") as output:
+        subprocess.run(["git", "-C", str(root), "archive", "--format=tar", head],
+                       check=True, stdout=output, timeout=60, env=git_environment())
+
+
+class OwnedReceipt:
+    """Persist recovery identity before create; update only this run's record."""
+    def __init__(self, path):
+        self.path = path
+        self.identity = None
+        self.initial_digest = None
+
+    def prepare(self, report):
+        data = (json.dumps(report, indent=2) + "\n").encode()
+        fd = os.open(self.path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
+            info = os.fstat(stream.fileno())
+            self.identity = (info.st_dev, info.st_ino)
+        self.initial_digest = hashlib.sha256(data).hexdigest()
+
+    def finalize(self, report):
+        fd = os.open(self.path, os.O_RDONLY | os.O_NOFOLLOW)
+        with os.fdopen(fd, "rb") as stream:
+            info = os.fstat(stream.fileno())
+            if (info.st_dev, info.st_ino) != self.identity or hashlib.sha256(stream.read()).hexdigest() != self.initial_digest:
+                raise RuntimeError("Owned recovery receipt changed before finalization")
+        temporary = self.path.with_name("." + self.path.name + "." + uuid.uuid4().hex)
+        try:
+            fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+            with os.fdopen(fd, "w") as stream:
+                stream.write(json.dumps(report, indent=2) + "\n")
+                stream.flush()
+                os.fsync(stream.fileno())
+            info = self.path.lstat()
+            if self.path.is_symlink() or (info.st_dev, info.st_ino) != self.identity:
+                raise RuntimeError("Owned recovery receipt was replaced")
+            os.replace(temporary, self.path)
+        finally:
+            temporary.unlink(missing_ok=True)
+
+
+def create_container(args, record, report):
+    record.prepare(report)
+    return call(args)
 
 
 def clean_head(root):
@@ -224,7 +277,7 @@ def main():
     if shutil.disk_usage(ROOT).free < 5 * 1024**3:
         raise RuntimeError("Local validation needs at least 5 GiB available; no cleanup is automatic")
     base = evidence_base(ROOT)
-    call(["git", "-C", str(ROOT), "check-ignore", "--quiet", str(base)])
+    git(ROOT, "check-ignore", "--quiet", str(base))
     base.mkdir(parents=True, exist_ok=True)
     run = Path(tempfile.mkdtemp(prefix="gate-", dir=base))
     source, work = run / "input", run / "work"
@@ -235,7 +288,11 @@ def main():
                "started_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                "timeout_seconds": TIMEOUT, "max_work_bytes": MAX_WORK,
                "cpus": 2, "memory": "2g", "source_input": "clean git archive; read-only mount",
-               "container_name": name, "local_docker_endpoint": DOCKER_ENDPOINT, "pass": False}
+               "container_name": name, "ownership_nonce": nonce,
+               "local_docker_endpoint": DOCKER_ENDPOINT, "pass": False, "exit_code": 1,
+               "staging_path": str(run), "source_path": str(source), "work_path": str(work),
+               "source_archive_path": str(run / "source.tar"), "phase": "prepared"}
+    record = OwnedReceipt(run / "receipt.json")
     process = None
     identifier = name
     code = 1
@@ -257,15 +314,13 @@ def main():
         if total > MAX_SOURCE or len(sizes) > 50000:
             raise RuntimeError("Tracked source exceeds the bounded archive input")
         archive = run / "source.tar"
-        with archive.open("wb") as output:
-            subprocess.run(["git", "-C", str(ROOT), "archive", "--format=tar", head], check=True,
-                           stdout=output, timeout=60)
+        archive_source(ROOT, head, archive)
         if archive.stat().st_size > 2 * MAX_SOURCE:
             raise RuntimeError("Git archive exceeds its input size bound")
         receipt["source_archive_sha256"] = hashlib.sha256(archive.read_bytes()).hexdigest()
         extract_source(archive, source)
         args = container_args(name, nonce, source, work, os.getuid(), os.getgid())
-        identifier = call(args)
+        identifier = create_container(args, record, receipt)
         if not re.fullmatch(r"[a-f0-9]{64}", identifier):
             raise RuntimeError("Invalid created-container identity")
         receipt["container_id"] = identifier
@@ -319,7 +374,13 @@ def main():
         receipt["pass"] = checks_completed and code == 0 and absent and receipt.get("staging_removed") is True
         receipt["finished_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         receipt["exit_code"] = code
-        (run / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
+        receipt["phase"] = "finished"
+        if record.identity is not None:
+            record.finalize(receipt)
+        else:
+            receipt["pass"] = False
+            receipt["exit_code"] = code = 1
+            record.prepare(receipt)
     print(f"Local Linux validation {'PASS' if receipt['pass'] else 'BLOCKED'}: {run / 'receipt.json'}")
     return code
 
