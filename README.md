@@ -65,3 +65,15 @@ Dependabot. Source checks run locally and Codex reviews changes before merge. To
 
 [Minimal Mistakes configuration docs](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
 Available skins: `default`, `air`, `aqua`, `contrast`, `dark`, `dirt`, `neon`, `mint`, `plum`, `sunrise`.
+
+## Local validation environments
+
+Run `script/check-local.sh native` with host Ruby 3.3 and installed gems, or
+explicitly select `script/check-local.sh docker` for bounded local Linux/amd64
+validation using an immutable official Ruby 3.3.13 image. Both run front matter,
+production/proofing builds and HTML-Proofer. Docker mode installs gems only in
+its isolated scratch, never mounts host credentials or the Docker socket, and
+retains exact-source/runtime/dependency receipts under ignored
+`vendor/local-checks/`. It requires a clean committed checkout, local Docker,
+Python 3.9+ and 5 GiB free. Neither mode publishes the site or proves native Mac
+acceptance. See [the canonical guide](CLAUDE.md) for limits and review requirements.

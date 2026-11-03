@@ -104,3 +104,31 @@ the PR. New source changes require fresh evidence. Hosted CI and dependency
 auto-merge are removed. Dependabot still proposes updates, which require local
 checks and Codex review. Preserve branch protections and GitHub Pages deployment
 from `master`; no checks means no hosted execution, not proof of local success.
+
+### Explicit local Linux gate
+
+`script/check-local.sh native` retains the host Ruby 3.3 gate. Host Ruby egress
+can fail independently of source correctness; never treat missing gems as a pass.
+`script/check-local.sh docker` selects an explicit Linux/amd64 gate with official
+Ruby 3.3.13 Bookworm pinned to its platform manifest digest. It is local Linux
+validation, not native Mac acceptance, hosted Actions or a silent fallback.
+
+Docker mode needs Python 3.9+, a local Unix-socket Docker daemon and 5 GiB free.
+It archives only a clean committed Git revision, excludes ignored toolchains and
+private receipts, and mounts source read-only. A nonroot container uses separate
+owned scratch for dependencies/builds, no ports, no host credentials/socket/HOME,
+no added capabilities, a read-only root and no-new-privileges. It is capped at
+2 CPU, 2 GiB memory, 128 processes, 2 GiB scratch and 20 minutes. Public network
+access is needed for gems and the configured remote theme; no host network/TLS
+policy changes are made. Only this run's container and staging are cleaned up.
+
+The container installs the unchanged Gemfile, then runs every native gate step:
+front matter, production build, proofing build and the original HTML-Proofer
+exclusions. No committed Gemfile.lock exists, so exact resolved versions, lock,
+source SHA/archive hash, immutable image identity, full log and outcome are kept
+under ignored `vendor/local-checks/gate-*/`. Record these with independent Codex
+reviews in the PR. A failed, timed-out or incomplete phase blocks acceptance.
+
+When changing the Docker runner, run its synthetic boundary tests locally:
+`PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s script -p 'test_local_docker.py'`.
+They require no Docker daemon, network or private inputs.
