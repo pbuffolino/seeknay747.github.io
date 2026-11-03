@@ -17,7 +17,7 @@ end
 
 gem "webrick", "~> 1.9"
 
-# CI-only: link/image/HTML validation against the built _site.
+# Local validation: link/image/HTML checks against the built _site.
 # Not used by the GitHub Pages build (Pages ignores non-whitelisted gems).
 group :test do
   gem "html-proofer", "~> 5.0"

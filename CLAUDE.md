@@ -37,7 +37,7 @@ bundle exec jekyll serve   # http://localhost:4000
 - `assets/css/main.scss` — imports the theme skin + local style overrides (glassmorphism, fonts).
 - `assets/images/` — post images, avatar, favicon.
 - `_data/navigation.yml` — main nav.
-- `.github/workflows/ci.yml` — build + HTML-Proofer checks on PR and push.
+- `script/check-local.sh` — local front-matter, production build and HTML-Proofer checks.
 
 ## Remote theme — how to customize
 
@@ -89,3 +89,18 @@ Active plugins are listed in `_config.yml` under `plugins:`. Search uses **Lunr*
 - **`publish-post`** — validate, build, branch, commit, and open a PR (never pushes to `master` directly).
 
 Typical flow: `new-post` → write content → `publish-post` → after merge, `share-post`.
+
+## Local checks and independent Codex review
+
+Owner policy (2026-11-03): run `script/check-local.sh` with reviewed Ruby 3.3 and
+installed locked gems. It preserves front-matter validation, the production
+build, root-relative proofing build and HTML/link/image checks. It never installs
+software or publishes the site. Missing runtime/dependencies or failing checks
+block acceptance; report them explicitly rather than claiming a pass.
+
+Independent native Codex code and security reviewers review the exact candidate
+SHA before merge; record their dispositions and actual local command results in
+the PR. New source changes require fresh evidence. Hosted CI and dependency
+auto-merge are removed. Dependabot still proposes updates, which require local
+checks and Codex review. Preserve branch protections and GitHub Pages deployment
+from `master`; no checks means no hosted execution, not proof of local success.
