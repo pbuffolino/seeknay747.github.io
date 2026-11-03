@@ -162,6 +162,13 @@ class GateBoundaries(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "evidence is missing"):
             GATE.copy_artifact(self.root / "missing", self.root / "receipt", self.root, True)
 
+    def test_client_proxy_configuration_cannot_enter_container(self):
+        args = GATE.container_args("owned", "nonce", self.root / "input", self.root / "work", 1000, 1000)
+        values = [args[i + 1] for i, item in enumerate(args) if item == "--env"]
+        for variable in GATE.PROXY_VARIABLES:
+            self.assertIn(variable + "=", values)
+        self.assertIn("Ambient proxy environment refused", GATE.COMMAND)
+
 
 if __name__ == "__main__":
     unittest.main()

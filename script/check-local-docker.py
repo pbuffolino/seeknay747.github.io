@@ -23,11 +23,14 @@ MAX_WORK = 2 * 1024**3
 MAX_SOURCE = 128 * 1024**2
 LABEL = "com.seeknay.jekyll-local-gate"
 DOCKER_ENDPOINT = None
+PROXY_VARIABLES = tuple(value for name in ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "FTP_PROXY", "NO_PROXY")
+                        for value in (name, name.lower()))
 COMMAND = r'''set -euo pipefail
 mkdir -p /work/source /work/tmp /work/home /work/bootstrap
 cp -R /input/. /work/source/
 cd /work/source
 ruby -e 'abort "Unexpected runtime" unless RUBY_VERSION == "3.3.13" && RUBY_PLATFORM.include?("linux")'
+ruby -e 'names=%w[HTTP_PROXY HTTPS_PROXY ALL_PROXY FTP_PROXY NO_PROXY http_proxy https_proxy all_proxy ftp_proxy no_proxy]; abort "Ambient proxy environment refused" if names.any? { |name| ENV[name] && !ENV[name].empty? }'
 ruby --version
 bundle --version
 bundle install --jobs 2 --retry 1
@@ -47,7 +50,7 @@ def docker_args(args):
 def docker_environment():
     if DOCKER_ENDPOINT is None:
         return dict(os.environ)  # Discovery only, never an engine operation.
-    selectors = {"DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_TLS_VERIFY", "DOCKER_CERT_PATH"}
+    selectors = {"DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_TLS_VERIFY", "DOCKER_CERT_PATH", "BUILDX_BUILDER", "BUILDKIT_HOST", "DOCKER_BUILDKIT"}
     return {key: value for key, value in os.environ.items() if key not in selectors}
 
 
@@ -141,6 +144,8 @@ def container_args(name, nonce, source, work, uid, gid):
                  "BUNDLE_APP_CONFIG=/work/bundle-config", "BUNDLE_IGNORE_CONFIG=true",
                  "BUNDLE_JOBS=2", "BUNDLE_RETRY=1", "BUNDLE_TIMEOUT=20", "MAKEFLAGS=-j2"]:
         args.extend(["--env", item])
+    for variable in PROXY_VARIABLES:
+        args.extend(["--env", variable + "="])
     return args + [IMAGE, "nice", "-n", "10", "bash", "-c", COMMAND]
 
 

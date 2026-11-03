@@ -118,7 +118,8 @@ It archives only a clean committed Git revision, excludes ignored toolchains and
 private receipts, and mounts source read-only. A nonroot container uses separate
 owned scratch for dependencies/builds, no ports, no host credentials/socket/HOME,
 no added capabilities, a read-only root and no-new-privileges. It is capped at
-2 CPU, 2 GiB memory, 128 processes, 2 GiB scratch and 20 minutes. Public network
+2 CPU, 2 GiB memory, 128 processes, 2 GiB scratch and 20 minutes. Standard upper/lower proxy environment values are explicitly emptied so Docker
+client proxy configuration cannot inject host credentials into the container. Public network
 access is needed for gems and the configured remote theme; no host network/TLS
 policy changes are made. Only this run's container and staging are cleaned up.
 
