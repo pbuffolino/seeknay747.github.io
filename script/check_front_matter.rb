@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# CI guard: every published post in _posts/ must have the required front matter.
+# Local guard: every published post in _posts/ must have the required front matter.
 # Keeps listings, SEO, and archives from silently breaking.
 
 require "yaml"

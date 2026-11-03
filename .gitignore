@@ -22,3 +22,6 @@ Gemfile.lock
 # OS cruft
 .DS_Store
 Thumbs.db
+
+# Local Docker-gate Python helper caches
+__pycache__/

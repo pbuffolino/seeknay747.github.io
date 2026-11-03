@@ -7,7 +7,7 @@ AI guide; the `README.md` is for humans and links here.
 
 - **Live site:** https://seeknay.com
 - **Repo:** `pbuffolino/seeknay747.github.io` — **PUBLIC**
-- **Stack:** Jekyll 3.9.5 (via `github-pages` gem) + **Minimal Mistakes remote theme** (`remote_theme: mmistakes/minimal-mistakes`), skin `air`.
+- **Stack:** Jekyll 3.10.0 (via the pinned `github-pages` 232 gem) + **Minimal Mistakes remote theme** (`remote_theme: mmistakes/minimal-mistakes`), skin `air`.
 - **Hosting/deploy:** GitHub Pages builds automatically from the **`master`** branch. There is no separate deploy step — merging to `master` publishes the site.
 
 ## Public repo — security & privacy first
@@ -37,7 +37,7 @@ bundle exec jekyll serve   # http://localhost:4000
 - `assets/css/main.scss` — imports the theme skin + local style overrides (glassmorphism, fonts).
 - `assets/images/` — post images, avatar, favicon.
 - `_data/navigation.yml` — main nav.
-- `.github/workflows/ci.yml` — build + HTML-Proofer checks on PR and push.
+- `script/check-local.sh` — local front-matter, production build and HTML-Proofer checks.
 
 ## Remote theme — how to customize
 
@@ -89,3 +89,47 @@ Active plugins are listed in `_config.yml` under `plugins:`. Search uses **Lunr*
 - **`publish-post`** — validate, build, branch, commit, and open a PR (never pushes to `master` directly).
 
 Typical flow: `new-post` → write content → `publish-post` → after merge, `share-post`.
+
+## Local checks and independent Codex review
+
+Owner policy (2026-11-03): run `script/check-local.sh` with reviewed Ruby 3.3 and
+installed locked gems. It preserves front-matter validation, the production
+build, root-relative proofing build and HTML/link/image checks. It never installs
+software or publishes the site. Missing runtime/dependencies or failing checks
+block acceptance; report them explicitly rather than claiming a pass.
+
+Independent native Codex code and security reviewers review the exact candidate
+SHA before merge; record their dispositions and actual local command results in
+the PR. New source changes require fresh evidence. Hosted CI and dependency
+auto-merge are removed. Dependabot still proposes updates, which require local
+checks and Codex review. Preserve branch protections and GitHub Pages deployment
+from `master`; no checks means no hosted execution, not proof of local success.
+
+### Explicit local Linux gate
+
+`script/check-local.sh native` retains the host Ruby 3.3 gate. Host Ruby egress
+can fail independently of source correctness; never treat missing gems as a pass.
+`script/check-local.sh docker` selects an explicit Linux/amd64 gate with official
+Ruby 3.3.13 Bookworm pinned to its platform manifest digest. It is local Linux
+validation, not native Mac acceptance, hosted Actions or a silent fallback.
+
+Docker mode needs Python 3.9+, a local Unix-socket Docker daemon and 5 GiB free.
+It archives only a clean committed Git revision, excludes ignored toolchains and
+private receipts, and mounts source read-only. A nonroot container uses separate
+owned scratch for dependencies/builds, no ports, no host credentials/socket/HOME,
+no added capabilities, a read-only root and no-new-privileges. It is capped at
+2 CPU, 2 GiB memory, 128 processes, 2 GiB scratch and 20 minutes. Standard upper/lower proxy environment values are explicitly emptied so Docker
+client proxy configuration cannot inject host credentials into the container. Public network
+access is needed for gems and the configured remote theme; no host network/TLS
+policy changes are made. Only this run's container and staging are cleaned up.
+
+The container installs the unchanged Gemfile, then runs every native gate step:
+front matter, production build, proofing build and the original HTML-Proofer
+exclusions. No committed Gemfile.lock exists, so exact resolved versions, lock,
+source SHA/archive hash, immutable image identity, full log and outcome are kept
+under ignored `vendor/local-checks/gate-*/`. Record these with independent Codex
+reviews in the PR. A failed, timed-out or incomplete phase blocks acceptance.
+
+When changing the Docker runner, run its synthetic boundary tests locally:
+`PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s script -p 'test_local_docker.py'`.
+They require no Docker daemon, network or private inputs.

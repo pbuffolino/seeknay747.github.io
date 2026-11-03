@@ -10,20 +10,16 @@ branch and is protected — **always go through a PR, never push to `master` dir
 
 ## Steps
 
-1. **Validate front matter**:
+1. **Run the complete local gate** using the reviewed Ruby 3.3 runtime and installed locked gems:
    ```bash
-   ruby script/check_front_matter.rb
+   script/check-local.sh
    ```
-   Fix any reported issues before continuing.
+   This checks front matter, production build, root-relative build and HTML-Proofer.
+   Missing prerequisites or failures block release. Do not install software implicitly.
 
-2. **Build locally** (catches Liquid/YAML errors the same way CI will):
-   ```bash
-   JEKYLL_ENV=production bundle exec jekyll build
-   ```
-   Optionally run the link/image check:
-   ```bash
-   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --allow-missing-href --ignore-missing-alt
-   ```
+2. **Obtain independent native Codex code and security review** of the exact candidate
+   revision. Record actual local command results and review dispositions in the PR;
+   refresh evidence after changing source. The implementing agent does not approve itself.
 
 3. **Branch** off `master` if not already on a feature branch:
    ```bash
@@ -42,7 +38,7 @@ branch and is protected — **always go through a PR, never push to `master` dir
    git push -u origin HEAD
    gh pr create --base master --fill
    ```
-   CI (build + front-matter + HTML-Proofer) runs on the PR. The PR must be green before merge.
+   The PR must contain passing exact-head local check evidence and independent Codex reviews before merge. Hosted CI is intentionally absent; never treat that absence as validation.
 
 6. **Report** the PR URL back to the user. After they merge, GitHub Pages publishes from
    `master` automatically — then suggest the **share-post** skill.
